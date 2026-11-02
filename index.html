@@ -1,8 +1,10 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- tema: claro por padrão; se a pessoa escolheu outro, aplica antes de pintar a página -->
+<script>try{var t=localStorage.getItem("pl-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <title>POWER LED</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -407,6 +409,8 @@ html.lenis,html.lenis body{height:auto}
 /* Seções que acendem ao descer e apagam ao subir */
 .zone{position:relative}
 .anim .zone::after{content:"";position:absolute;inset:0;z-index:20;pointer-events:none;background:#040506;opacity:.88}
+/* no tema claro a seção "acende" a partir da cor da página, sem bloco preto (a seção de contato, que é escura, segue escura) */
+:root[data-theme="light"].anim .zone::after{background:var(--ink)}
 .anim .zone::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;z-index:21;pointer-events:none;background:var(--led);transform:scaleX(0);opacity:0}
 .anim .zone.on::after{animation:powerOn .55s cubic-bezier(.3,.7,.2,1) forwards}
 .anim .zone.on::before{animation:stripOn .8s var(--ease) forwards}

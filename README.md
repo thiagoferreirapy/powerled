@@ -31,7 +31,7 @@ Um site de uma página, escuro, com um neon em forma de U que acende na abertura
 | 🖼️ **Galeria de projetos** | Rolagem horizontal no desktop e arraste no celular, com fotos e vídeos reais de cada trabalho. |
 | 🪟 **Modais animados** | Detalhes de serviços e projetos abrem e fecham com transição, com troca entre foto e vídeo. |
 | 💬 **Orçamento pelo WhatsApp** | Todos os botões de orçamento abrem o WhatsApp com a mensagem pronta. |
-| 🌗 **Tema claro e escuro** | Alternável pelo botão no topo, com a escolha salva no navegador. |
+| 🌗 **Tema claro e escuro** | O site abre no tema claro. O botão no topo alterna para o escuro, e a escolha fica salva no navegador. |
 | ♿ **Acessível** | Navegação por teclado, foco visível e respeito ao “reduzir movimento” do sistema. |
 
 <br>
