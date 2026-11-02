@@ -1,0 +1,1699 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>POWER LED</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="POWER LED | Sinalização e Projetos. Iluminação corporativa, comunicação visual, sinalização, estruturas em MDF, fabricação e instalação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Tipografia: Saira (escolha do cliente) para títulos e textos, Geist Mono para rótulos técnicos.
+   Layout: grade editorial de 12 colunas; o verde só aparece onde existe luz de verdade (abertura, U do hero, linha do comparador) ou ação principal */
+:root{
+  --ink:#0B0D0F;
+  --ink-2:#121416;
+  --ink-3:#181B1E;
+  --line:#24282C;
+  --line-2:#33383D;
+  --paper:#F5F5F5;
+  --soft:#C9CBCD;
+  --mute:#A1A1A1;
+  --dim:#6E7378;
+  --led:#00F02B;
+  --f-display:"Saira","Geist","Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Saira",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --gut-l:max(clamp(16px,4.2vw,64px),env(safe-area-inset-left,0px));
+  --gut-r:max(clamp(16px,4.2vw,64px),env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --hdr:76px;
+  --hdr-bg:rgba(11,13,15,.86);
+  --ghost:rgba(245,245,245,.32);
+  --ghost-bg:rgba(245,245,245,.05);
+  --wall:#121513;
+  --wall-line:rgba(245,245,245,.06);
+  --lamp-glass:#123a1b;
+  --pool-a:.22;
+  color-scheme:dark;
+}
+/* Tema claro: escolhido pelo botão do cabeçalho (ou pela preferência explícita do visitante) */
+:root[data-theme="light"]{
+  --ink:#F3F3F1;
+  --ink-2:#E9E9E6;
+  --ink-3:#DFDFDB;
+  --line:#D6D6D1;
+  --line-2:#BDBDB7;
+  --paper:#0B0D0F;
+  --soft:#2C2F32;
+  --mute:#5B5F63;
+  --dim:#7A7E82;
+  --hdr-bg:rgba(243,243,241,.88);
+  --ghost:rgba(11,13,15,.3);
+  --ghost-bg:rgba(11,13,15,.05);
+  --wall:#DCDEDA;
+  --wall-line:rgba(11,13,15,.07);
+  --lamp-glass:#b7d9be;
+  color-scheme:light;
+}
+html.theming,html.theming *{transition:background-color .45s ease,color .45s ease,border-color .45s ease!important}
+/* Faixas com fotografia noturna continuam escuras nos dois temas */
+.cta,dialog .ph{--ink:#0B0D0F;--ink-2:#121416;--line:#24282C;--line-2:#33383D;--paper:#F5F5F5;--soft:#C9CBCD;--mute:#A1A1A1;--dim:#6E7378;--ghost:rgba(245,245,245,.32);--ghost-bg:rgba(245,245,245,.05);color:var(--paper);background-color:var(--ink)}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ink);scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:var(--hdr)}
+html.lock{overflow:hidden}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;text-align:inherit}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance;letter-spacing:-.018em;line-height:1.02}
+p{margin:0}
+.wrap{max-width:1440px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.label{display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip-link{position:fixed;left:16px;top:-60px;z-index:70;background:var(--paper);color:var(--ink);padding:10px 14px;font-size:14px}
+.skip-link:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+
+/* ---------- Abertura LIGHT ON ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:#0B0D0F;display:grid;place-items:center;overflow:hidden}
+#intro .room{position:absolute;left:50%;top:50%;margin:-70vmax 0 0 -70vmax;width:140vmax;height:140vmax;border-radius:50%;background:radial-gradient(circle,rgba(0,240,43,.2) 0%,rgba(0,240,43,.06) 22%,rgba(0,0,0,0) 46%);opacity:0;pointer-events:none}
+#intro .stage{position:relative;width:min(58vw,300px);aspect-ratio:188/262;container-type:size;-webkit-mask-image:linear-gradient(transparent,#000 16.5%);mask-image:linear-gradient(transparent,#000 16.5%)}
+#intro svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#intro .intro-b9{filter:blur(4px);filter:blur(calc(100cqw * 9 / 188))}
+#intro .intro-b3{filter:blur(2px);filter:blur(calc(100cqw * 3.2 / 188))}
+#intro .mark{opacity:0}
+#intro .u-glass{stroke:#0f3a18;opacity:0}
+#intro .skip{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding:12px 14px;border:1px solid var(--line)}
+#intro .skip:hover{color:var(--paper);border-color:var(--mute)}
+#intro .load{position:absolute;left:max(20px,env(safe-area-inset-left,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));margin:0;padding:12px 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);transition:opacity .4s}
+#intro .load b{font-weight:400;color:var(--paper);display:inline-block;min-width:4ch;font-variant-numeric:tabular-nums}
+#intro.lit .load b{color:var(--led)}
+#intro.static .mark,#intro.static .u-glass{opacity:1}
+
+/* ---------- Cabeçalho ---------- */
+.hdr{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+/* fundo do header aparece aos poucos conforme a rolagem (--hp vai de 0 a 1 no script) */
+.hdr::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:var(--hdr-bg);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:var(--hp,0);transition:opacity .25s linear}
+/* com o menu mobile aberto o header assume o mesmo fundo do menu; ao fechar volta ao estado da rolagem */
+.menu-open .hdr::before{background:var(--ink);opacity:1}
+.hdr .wrap{display:flex;align-items:center;gap:24px;height:var(--hdr)}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand svg{width:46px;height:48px}
+.brand b{display:block;font-family:var(--f-display);font-weight:600;letter-spacing:.08em;font-size:14px;line-height:1.2}
+.brand small{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;margin-top:3px}
+.nav{display:flex;align-items:center;gap:32px;margin-left:auto}
+.nav a{font-size:14px;color:var(--soft);position:relative;padding-block:6px;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--paper);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.nav a:hover,.nav a.on{color:var(--paper)}
+.nav a:hover::after,.nav a.on::after{transform:scaleX(1)}
+.nav .btn{display:none}
+.theme-btn{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line-2);color:var(--paper);flex:none;transition:border-color .3s,background-color .3s}
+.theme-btn:hover{border-color:var(--paper)}
+.theme-btn svg{width:18px;height:18px}
+.theme-btn .i-sun{display:none}
+:root[data-theme="light"] .theme-btn .i-sun{display:block}
+:root[data-theme="light"] .theme-btn .i-moon{display:none}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;place-items:center}
+.menu-btn i{display:block;width:22px;height:1.5px;background:var(--paper);position:relative;transition:background .2s}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:22px;height:1.5px;background:var(--paper);transition:transform .3s,top .3s}
+.menu-btn i::before{top:-7px}.menu-btn i::after{top:7px}
+.menu-open .menu-btn i{background:transparent}
+.menu-open .menu-btn i::before{top:0;transform:rotate(45deg)}
+.menu-open .menu-btn i::after{top:0;transform:rotate(-45deg)}
+
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;height:52px;padding:0 22px;font-size:15px;font-weight:500;border:1px solid var(--line-2);transition:background .3s,color .3s,border-color .3s;white-space:nowrap}
+.btn .ar{width:16px;height:16px;flex:none;transition:transform .35s var(--ease)}
+.btn:hover .ar{transform:translateX(4px)}
+.btn-led{background:var(--led);color:#04120a;border-color:var(--led)}
+.btn-led:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.btn-ghost{color:var(--paper);border-color:var(--ghost)}
+.btn-ghost:hover{border-color:var(--paper);background:var(--ghost-bg)}
+.btn-sm{height:42px;padding:0 18px;font-size:14px}
+.btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+.btn[aria-disabled="true"]:hover{background:var(--led);border-color:var(--led);color:#04120a}
+.btn[aria-disabled="true"]:hover .ar{transform:none}
+
+/* ---------- Imagens ---------- */
+.ph{position:relative;overflow:hidden;background:var(--ink-2);margin:0}
+.ph>svg,.ph>img,.ph>video{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tag{position:absolute;left:12px;top:12px;z-index:2;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,245,245,.72);background:rgba(11,13,15,.6);padding:4px 7px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+
+/* ---------- Hero: o U é a luz principal ---------- */
+.hero{--lx:73%;--ly:60%;position:relative;min-height:max(640px,min(96svh,980px));display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:var(--ink)}
+.room{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.room .wall{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(11vw - 1px),var(--wall-line) calc(11vw - 1px) 11vw),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 1 0 0 0 0 .92 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"),var(--wall);-webkit-mask-image:radial-gradient(ellipse 58% 78% at var(--lx) var(--ly),#000 0%,rgba(0,0,0,.45) 40%,transparent 78%);mask-image:radial-gradient(ellipse 58% 78% at var(--lx) var(--ly),#000 0%,rgba(0,0,0,.45) 40%,transparent 78%);opacity:0}
+.room .pool{position:absolute;inset:0;background:radial-gradient(ellipse 46% 62% at var(--lx) var(--ly),rgba(0,240,43,.22),rgba(0,240,43,.06) 42%,transparent 72%),radial-gradient(circle at var(--lx) calc(var(--ly) - 14%),rgba(0,240,43,.15),transparent 24%);opacity:0}
+.room .spill{position:absolute;left:calc(var(--lx) - 20vw);width:40vw;top:calc(var(--ly) + 6%);height:30%;background:radial-gradient(ellipse 50% 22% at 50% 70%,rgba(0,240,43,.2),rgba(0,240,43,0) 70%);opacity:0}
+/* a caixa do SVG é maior que o tubo para o brilho nunca ser cortado (640/520 mantém o tamanho do U) */
+.lamp{position:absolute;container-type:size;-webkit-mask-image:linear-gradient(transparent,#000 14%);mask-image:linear-gradient(transparent,#000 14%);left:var(--lx);top:calc(56px + env(safe-area-inset-top,0px));height:calc((var(--ly) - 56px) * 1.08 * 640 / 520);aspect-ratio:1;transform:translateX(-50%)}
+.lamp svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+/* desfoque proporcional ao tamanho do U (1 unidade do SVG = 100cqh/640) */
+.lamp .lamp-b28{filter:blur(16px);filter:blur(calc(100cqh * 28 / 640))}
+.lamp .lamp-b7{filter:blur(4px);filter:blur(calc(100cqh * 7 / 640))}
+.lamp .l-glass{stroke:var(--lamp-glass)}
+.lamp .l-tube,.lamp .l-core,.lamp .l-glow{stroke-dasharray:1 1;stroke-dashoffset:1}
+.lamp .l-halo{opacity:0}
+/* Luz viva: o tom de verde muda devagar e o tubo dá piscadas de vez em quando (controlado no script) */
+@property --lc{syntax:"<color>";inherits:true;initial-value:#00F02B}
+.hero{--lc:#00F02B;transition:--lc 2.8s ease}
+.lamp .l-glow,.lamp .l-halo{stroke:var(--lc)}
+.lamp .l-tube{stroke:color-mix(in srgb,var(--lc) 82%,#ffffff)}
+.room .pool{background:radial-gradient(ellipse 46% 62% at var(--lx) var(--ly),color-mix(in srgb,var(--lc) 22%,transparent),color-mix(in srgb,var(--lc) 6%,transparent) 42%,transparent 72%),radial-gradient(circle at var(--lx) calc(var(--ly) - 14%),color-mix(in srgb,var(--lc) 15%,transparent),transparent 24%)}
+.room .spill{background:radial-gradient(ellipse 50% 22% at 50% 70%,color-mix(in srgb,var(--lc) 20%,transparent),transparent 70%)}
+.lamp .l-run{stroke-dasharray:.07 1.6;stroke-dashoffset:.07;opacity:0}
+.ready .lamp .l-run{animation:lampRun 7.5s linear 3.4s infinite}
+@keyframes lampRun{0%{stroke-dashoffset:.07;opacity:0}4%{opacity:.85}36%{stroke-dashoffset:-1;opacity:.85}38%,100%{stroke-dashoffset:-1;opacity:0}}
+.hero.idle .lamp *,.hero.idle .room *{animation-play-state:paused!important}
+.hero-inner{width:100%;padding-block:0 clamp(48px,7vw,96px);display:grid;gap:36px;position:relative;pointer-events:none}
+.hero-inner>*{pointer-events:auto}
+/* só o tubo do U reage ao mouse/toque (traço invisível mais largo que o tubo) */
+.lamp .l-hit{pointer-events:stroke;cursor:pointer}
+.hero h1{font-size:clamp(46px,7vw,108px);letter-spacing:-.028em;line-height:.95;max-width:12ch}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:.02em;right:.12em;bottom:.04em;height:.045em;min-height:3px;background:var(--led);transform-origin:left}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.hero-foot p{max-width:46ch;color:var(--soft);font-size:clamp(16px,1.35vw,19px)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ---------- Seções ---------- */
+.sec{padding-block:clamp(96px,11vw,170px);position:relative}
+.h2{font-size:clamp(36px,4.8vw,72px)}
+.lead{color:var(--mute);max-width:50ch;font-size:clamp(16px,1.2vw,18px)}
+
+/* Serviços: coluna fixa com título e imagem + índice de serviços */
+.svc-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,112px);align-items:start}
+.svc-side{position:sticky;top:calc(var(--hdr) + 28px);display:grid;gap:28px}
+.svc-side .h2{font-size:clamp(34px,3.8vw,58px);max-width:12ch}
+.svc-prev{position:relative;aspect-ratio:4/3;width:100%}
+.svc-prev .ph{position:absolute;inset:0;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease)}
+.svc-prev .ph.on{clip-path:inset(0);z-index:1}
+.svc-prev .ph.was{clip-path:inset(0);z-index:0}
+.svc-prev .cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;background:linear-gradient(transparent,rgba(11,13,15,.88))}
+.svc-prev .cap .mono{color:#C9CBCD}
+.svc-desc{color:var(--mute);font-size:15.5px;max-width:42ch;min-height:3.2em;transition:opacity .3s}
+.svc-list{--iy:0px;--ih:0px;list-style:none;margin:0;padding:0 0 0 clamp(20px,2.4vw,36px);position:relative}
+.svc-list::after{content:"";position:absolute;left:0;top:0;width:2px;height:var(--ih);background:var(--led);transform:translateY(var(--iy));transition:transform .55s var(--ease),height .55s var(--ease)}
+.svc h3{font-size:clamp(28px,3.2vw,48px);font-weight:400;letter-spacing:-.016em}
+.svc-row{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:clamp(12px,1.4vw,20px) 0;color:var(--dim);transition:color .35s,transform .5s var(--ease)}
+.svc-row .ar{width:22px;height:22px;flex:none;color:var(--dim);transform:translateX(-8px);opacity:0;transition:transform .45s var(--ease),opacity .3s,color .3s}
+.svc-body{display:none;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.svc-body>div{overflow:hidden;min-height:0}
+.svc-body p{color:var(--mute);max-width:50ch;font-size:15.5px;padding-bottom:16px}
+.svc.on .svc-row{color:var(--paper);transform:translateX(6px)}
+.svc.on .svc-row .ar{opacity:1;transform:none;color:var(--paper)}
+.svc.on .svc-body{grid-template-rows:1fr}
+
+/* Projetos: galeria horizontal guiada pela rolagem */
+.hs{padding:0}
+.hs-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,3svh,36px);padding-top:var(--hdr)}
+.hs-track{--ch:min(56svh,560px);display:flex;align-items:flex-start;gap:clamp(20px,2.4vw,40px);width:max-content;padding-left:var(--gut-l);padding-right:var(--gut-r);will-change:transform}
+.hs-intro{flex:none;width:min(30vw,440px);align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding-right:clamp(8px,2vw,40px)}
+.hs-intro .h2{font-size:clamp(34px,3.8vw,58px);max-width:11ch;margin-top:22px}
+.hs-intro .lead{font-size:15.5px}
+.hs-hint{display:flex;align-items:center;gap:12px}
+.hs-hint svg{width:28px;height:12px;animation:nudge 2.4s var(--ease) infinite}
+@keyframes nudge{0%,60%,100%{transform:none}30%{transform:translateX(8px)}}
+.pj{flex:none;position:relative;display:grid;gap:16px;align-content:start}
+.pj .ph{height:var(--ch);width:var(--ch)}
+.pj.l .ph{width:calc(var(--ch) * 1.45)}
+.pj.p .ph{width:calc(var(--ch) * .8)}
+.pj:nth-of-type(even){margin-top:calc(var(--ch) * .12)}
+.pj .ph>svg,.pj .ph>img{transform:translateX(var(--px,0%)) scale(var(--z,1.1));transition:transform 1s var(--ease)}
+.pj:hover .ph,.pj:focus-within .ph{--z:1.15}
+.pj .meta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline;width:0;min-width:100%}
+.pj h3{font-size:clamp(20px,1.7vw,25px);letter-spacing:-.02em}
+.pj .meta .mono{grid-column:1}
+.pj .ar{grid-column:2;grid-row:1;width:18px;height:18px;color:var(--mute);transition:transform .45s var(--ease),color .3s}
+.pj:hover .ar,.pj:focus-within .ar{transform:translateX(4px);color:var(--paper)}
+.hs-end{flex:none;width:min(28vw,400px);align-self:center;display:grid;gap:22px;padding:clamp(24px,2.4vw,36px);background:var(--ink-2)}
+.hs-end h3{font-size:clamp(26px,2.4vw,36px)}
+.hs-end p{color:var(--mute);font-size:15.5px}
+.hs-bar{display:flex;align-items:center;gap:20px;width:100%}
+.hs-progress{flex:1;height:1px;background:var(--line-2);position:relative}
+.hs-progress i{position:absolute;inset:0;background:var(--paper);transform-origin:left;transform:scaleX(var(--hp,0))}
+.hit{position:absolute;inset:0;z-index:3;width:100%;height:100%}
+.hit:focus-visible{outline-offset:6px}
+/* Modo nativo (celular ou movimento reduzido): rolagem lateral com o dedo */
+.hs.native{padding-block:clamp(80px,10vw,140px) clamp(64px,8vw,110px)}
+.hs.native .hs-pin{position:static;height:auto;padding-top:0;overflow:visible}
+.hs.native .hs-track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gut-l);overscroll-behavior-x:contain;scrollbar-width:none;transform:none!important;padding-bottom:6px}
+.hs.native .hs-track::-webkit-scrollbar{display:none}
+.hs.native .hs-intro,.hs.native .pj,.hs.native .hs-end{scroll-snap-align:start}
+.hs.native .pj .ph>svg,.hs.native .pj .ph>img{--px:0%;--z:1}
+
+/* Antes e depois */
+.ba-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,4vw,72px);align-items:start}
+.ba-side{position:sticky;top:calc(var(--hdr) + 28px);display:grid;gap:26px}
+.ba-side .h2{font-size:clamp(34px,3.6vw,56px)}
+.ba-tabs{display:inline-flex;justify-self:start;gap:4px;padding:4px;background:var(--ink-2)}
+.ba-tabs[hidden]{display:none}
+.ba-tabs button{padding:10px 20px;font-size:15px;color:var(--mute);transition:color .3s,background-color .3s}
+.ba-tabs button:hover{color:var(--paper)}
+.ba-tabs button[aria-selected="true"]{background:var(--paper);color:var(--ink)}
+.ba-desc{color:var(--mute);font-size:15.5px;max-width:42ch;min-height:5em}
+.ba{--x:50%;position:relative;aspect-ratio:4/3;max-height:calc(100svh - var(--hdr) - 56px);width:100%;overflow:hidden;touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;background:var(--ink-2)}
+.ba-layer{position:absolute;inset:0;transition:opacity .4s ease}
+.ba-layer>svg,.ba-layer>img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+/* Corte feito só com transform: a imagem não é redesenhada a cada movimento do arraste */
+.ba-before{overflow:hidden;transform:translateX(calc(var(--x) - 100%));will-change:transform}
+.ba-before>svg,.ba-before>img{transform:translateX(calc(100% - var(--x)));will-change:transform}
+.ba-after>svg,.ba-after>img{transform:translateZ(0)}
+.ba.swap .ba-layer{opacity:0}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--x);width:48px;margin-left:-24px;display:grid;place-items:center;z-index:3;outline:none;cursor:ew-resize;touch-action:none}
+.ba-handle::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#F5F5F5;box-shadow:0 0 8px rgba(0,0,0,.45)}
+.ba-knob{position:relative;width:52px;height:52px;border-radius:50%;background:rgba(11,13,15,.78);border:1.5px solid #F5F5F5;display:grid;place-items:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .25s var(--ease)}
+.ba.drag .ba-knob{transform:scale(1.1)}
+.ba-handle:focus-visible .ba-knob{outline:2px solid var(--paper);outline-offset:4px}
+.ba-lbl{position:absolute;bottom:16px;z-index:2;padding:6px 10px;background:rgba(11,13,15,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#F5F5F5;pointer-events:none}
+.ba-lbl.l{left:16px}.ba-lbl.r{right:16px}
+
+/* Processo */
+.proc{background:var(--ink-2)}
+.proc-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:end;margin-bottom:clamp(56px,7vw,104px)}
+.steps{list-style:none;margin:0;padding:48px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px);position:relative}
+.track{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-2)}
+.track i{position:absolute;inset:0;background:var(--led);transform-origin:left;transform:scaleX(var(--p,0))}
+.step{position:relative;display:grid;gap:14px;align-content:start}
+.step::before{content:"";position:absolute;top:-53px;left:0;width:11px;height:11px;border-radius:50%;background:var(--ink-2);border:1px solid var(--line-2);transition:background .4s,border-color .4s}
+.step.lit::before{background:var(--led);border-color:var(--led)}
+.step b{font-family:var(--f-mono);font-weight:400;font-size:13px;letter-spacing:.12em;color:var(--dim);transition:color .4s}
+.step.lit b{color:var(--paper)}
+.step h3{font-size:clamp(22px,2vw,30px);letter-spacing:-.014em}
+.step p{color:var(--mute);font-size:15.5px;max-width:32ch}
+
+/* Sobre + diferenciais */
+.about-statement{display:grid;gap:26px;margin-bottom:clamp(56px,7vw,104px)}
+.about-statement .h2{font-size:clamp(38px,5.4vw,84px);max-width:17ch}
+.about{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,110px);align-items:start}
+.about .ph{aspect-ratio:4/3}
+.about-txt{display:grid;gap:22px;padding-top:6px}
+.about-txt>p{color:var(--soft);max-width:46ch}
+.flow{--g:clamp(56px,6vw,112px);--fs:clamp(36px,4.4vw,72px);list-style:none;margin:clamp(80px,10vw,150px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px var(--g)}
+.flow li{display:grid;gap:14px;align-content:start;position:relative}
+.flow b{font-family:var(--f-display);font-weight:500;font-size:var(--fs);line-height:1;letter-spacing:-.02em}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:calc(var(--g) / -2);top:calc(var(--fs) * .52);width:clamp(26px,2.6vw,42px);height:16px;transform:translate(50%,-50%);background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16' fill='none' stroke='%2300F02B' stroke-width='1.6'%3E%3Cpath d='M0 8h38M31 1l7 7-7 7'/%3E%3C/svg%3E")}
+.flow span{color:var(--mute);font-size:15.5px;max-width:30ch}
+.how{margin-top:clamp(96px,12vw,180px);display:grid;gap:clamp(32px,4vw,56px)}
+.how h3.h3{font-size:clamp(28px,2.8vw,40px)}
+.how ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(12px,1.4vw,20px)}
+/* cards: traço verde no topo que cresce no hover, como um perfil de LED acendendo */
+.how li{position:relative;display:grid;gap:12px;align-content:start;padding:clamp(24px,2.6vw,40px);background:var(--ink-2);border:1px solid var(--line);transition:border-color .4s}
+.how li{overflow:hidden}
+.how li::before{content:"";position:absolute;left:0;top:0;width:48px;height:2px;background:var(--led);box-shadow:0 0 10px rgba(0,240,43,.45);transition:width .7s var(--ease)}
+@media (hover:hover){.how li:hover{border-color:var(--line-2)}.how li:hover::before{width:100%}}
+.how li h4{font-size:clamp(22px,1.9vw,28px);font-weight:500;letter-spacing:-.014em}
+.how li p{color:var(--mute);font-size:15.5px;max-width:38ch}
+
+/* Conversão */
+.cta{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(120px,15vw,220px) clamp(72px,8vw,112px)}
+.cta .ph{position:absolute;inset:0;z-index:-2}
+.cta .shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,13,15,.94) 0%,rgba(11,13,15,.72) 45%,rgba(11,13,15,.2) 100%),linear-gradient(180deg,var(--ink) 0%,rgba(11,13,15,0) 20%,rgba(11,13,15,0) 70%,var(--ink) 100%)}
+.cta-in{display:grid;gap:28px;max-width:740px}
+.cta h2{font-size:clamp(40px,6vw,92px);letter-spacing:-.028em}
+.cta p{color:var(--soft);max-width:44ch;font-size:clamp(16px,1.3vw,19px)}
+.cta-note{font-size:14px;color:var(--dim)}
+.contacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 32px;margin:clamp(72px,9vw,128px) 0 0}
+.contacts div{display:grid;gap:6px;min-width:0}
+.contacts dt,.contacts dd{margin:0}
+.contacts dd{font-size:clamp(18px,1.6vw,22px);overflow-wrap:anywhere}
+.contacts dd a:hover{color:var(--led)}
+.contacts dd.unset{color:var(--dim)}
+
+/* Rodapé */
+.ftr{padding-block:80px 32px;background:var(--ink-2)}
+.ftr-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:40px}
+.ftr .brand svg{width:64px;height:66px}
+.ftr p.d{color:var(--mute);font-size:15px;max-width:32ch;margin-top:20px}
+.ftr h4{margin:0 0 18px;font-weight:400}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px;color:var(--soft)}
+.ftr ul a{transition:color .3s}
+.ftr ul a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:4px}
+.ftr .unset{color:var(--dim)}
+.ftr-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:72px}
+.credit{font-family:var(--f-body);font-size:13px;letter-spacing:.01em;text-transform:none;color:var(--dim)}
+.credit b,.credit a{font-weight:500;letter-spacing:.06em;color:var(--soft);transition:color .3s}
+.credit a:hover{color:var(--paper);text-decoration:underline;text-underline-offset:4px}
+
+/* Diálogos */
+dialog{border:0;padding:0;background:var(--ink);color:var(--paper);max-width:min(1180px,calc(100vw - 32px));width:100%;max-height:calc(100svh - 32px)}
+dialog::backdrop{background:rgba(5,6,7,.86);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+/* fundo do modal: entra e sai em fade junto com a janela */
+dialog[open]::backdrop{animation:bdIn .45s ease both}
+dialog.closing::backdrop{animation:bdOut .3s ease both}
+@keyframes bdIn{from{opacity:0}}
+@keyframes bdOut{to{opacity:0}}
+@media (prefers-reduced-motion:reduce){dialog[open]::backdrop,dialog.closing::backdrop{animation:none}}
+dialog[open]{animation:dlg .4s var(--ease)}
+@keyframes dlg{from{opacity:0;transform:translateY(14px)}}
+.dlg{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);min-height:min(620px,80svh)}
+.dlg .ph{min-height:300px}
+.dlg .ph>video{object-fit:contain;background:#000}
+.dlg-media{display:flex;gap:6px;flex-wrap:wrap}
+.dlg-media button{padding:8px 14px;font-size:13px;border:1px solid var(--line-2);color:var(--mute);transition:color .3s,border-color .3s}
+.dlg-media button[aria-pressed="true"]{color:var(--paper);border-color:var(--led)}
+.dlg-txt{padding:clamp(24px,3.5vw,48px);display:grid;gap:20px;align-content:start;overflow:auto}
+.dlg-txt h3{font-size:clamp(28px,3vw,42px)}
+.dlg-txt p{color:var(--soft)}
+.dlg-txt ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.dlg-txt li{padding:8px 12px;background:var(--ink-2);font-size:14.5px;color:var(--soft)}
+.dlg-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.x{width:44px;height:44px;display:grid;place-items:center;flex:none;color:var(--mute);transition:color .3s}
+.x:hover{color:var(--paper)}
+#dlgTitle{outline:none}
+.dlg-nav{display:flex;gap:8px;flex-wrap:wrap}
+.dlg-nav button{height:44px;padding:0 16px;border:1px solid var(--line-2);font-size:14px}
+.dlg-nav button:hover{border-color:var(--paper)}
+
+/* ---------- Movimento ---------- */
+.anim [data-rv="img"]{clip-path:inset(10% 0 10% 0);transition:clip-path 1.2s var(--ease)}
+.anim [data-rv="img"]>svg,.anim [data-rv="img"]>img{transform:scale(1.12);transition:transform 1.5s var(--ease)}
+.anim [data-rv="img"].in{clip-path:inset(0)}
+.anim [data-rv="img"].in>svg,.anim [data-rv="img"].in>img{transform:scale(1)}
+
+.anim .hero h1 .ln>span{transform:translateY(105%)}
+.anim .hero-foot{opacity:0;transform:translateY(20px)}
+.anim .hero h1 em::after{transform:scaleX(0)}
+.ready .hero h1 .ln>span{transform:none;transition:transform 1.1s var(--ease)}
+.ready .hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+.ready .hero-foot{opacity:1;transform:none;transition:opacity 1s var(--ease) .35s,transform 1s var(--ease) .35s}
+.ready .hero h1 em::after{transform:none;transition:transform .9s var(--ease) 1.6s}
+.ready .lamp .l-tube,.ready .lamp .l-core,.ready .lamp .l-glow{animation:lampDraw 1s cubic-bezier(.65,0,.35,1) .2s both}
+.ready .lamp .l-u{animation:lampFlick .45s linear 1.2s both}
+.ready .lamp .l-halo{animation:lampHalo 1.1s ease-out 1.6s both,lampBreathe 7s ease-in-out 3s infinite}
+.ready .room .pool,.ready .room .wall,.ready .room .spill{animation:roomOn 1.3s ease-out 1.6s both}
+@keyframes lampDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes lampFlick{0%,100%{opacity:1}12%{opacity:.2}24%{opacity:1}40%{opacity:.45}55%{opacity:1}75%{opacity:.7}}
+@keyframes lampHalo{from{opacity:0}to{opacity:.85}}
+@keyframes lampBreathe{0%,100%{opacity:.85}50%{opacity:.64}}
+@keyframes roomOn{0%{opacity:0}20%{opacity:.5}28%{opacity:.15}100%{opacity:1}}
+html:not(.anim) .lamp .l-tube,html:not(.anim) .lamp .l-core,html:not(.anim) .lamp .l-glow{stroke-dashoffset:0}
+html:not(.anim) .lamp .l-halo{opacity:.85}
+html:not(.anim) .room .pool,html:not(.anim) .room .wall,html:not(.anim) .room .spill{opacity:1}
+
+/* Rolagem suave (Lenis) */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* Seções que acendem ao descer e apagam ao subir */
+.zone{position:relative}
+.anim .zone::after{content:"";position:absolute;inset:0;z-index:20;pointer-events:none;background:#040506;opacity:.88}
+.anim .zone::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;z-index:21;pointer-events:none;background:var(--led);transform:scaleX(0);opacity:0}
+.anim .zone.on::after{animation:powerOn .55s cubic-bezier(.3,.7,.2,1) forwards}
+.anim .zone.on::before{animation:stripOn .8s var(--ease) forwards}
+@keyframes powerOn{from{opacity:.88}to{opacity:0}}
+@keyframes stripOn{0%{transform:scaleX(0);opacity:1}55%{transform:scaleX(1);opacity:.8}100%{transform:scaleX(1);opacity:0}}
+
+/* ---------- Arredondamentos ---------- */
+:root{--r:14px;--r-btn:10px;--r-chip:6px}
+.ph,.svc-prev,.ba,.hs-end,.how li,dialog{border-radius:var(--r)}
+.cta .ph,.dlg .ph{border-radius:0}  /* fundo de ponta a ponta; no modal quem arredonda é a própria janela */
+.btn,.theme-btn,.dlg-nav button,.dlg-media button,.ba-tabs button,#intro .skip{border-radius:var(--r-btn)}
+.ba-tabs{border-radius:calc(var(--r-btn) + 4px)}
+.tag,.ba-lbl,.dlg-txt li{border-radius:var(--r-chip)}
+
+/* ---------- Responsivo ---------- */
+.nav a{white-space:nowrap}
+/* telas médias: o header não comporta 6 links + botão; o botão grande da hero cobre o orçamento */
+@media (max-width:1180px){.hdr .wrap>.btn{display:none}}
+@media (max-width:1100px){.hdr .brand small{display:none}}
+@media (max-width:1100px){
+  .nav{gap:22px}
+  .ftr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .how{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  :root{--hdr:68px}
+  .nav,.hdr .btn{display:none}
+  .menu-btn{display:grid;margin-left:0}
+  .theme-btn{margin-left:auto}
+  .menu-open .nav{display:flex;position:fixed;inset:0;top:calc(var(--hdr) + env(safe-area-inset-top,0px));flex-direction:column;align-items:stretch;gap:0;background:var(--ink);padding:16px var(--gut-r) 40px var(--gut-l);margin:0;height:calc(100svh - var(--hdr) - env(safe-area-inset-top,0px));overflow:auto}
+  .menu-open .nav a{font-family:var(--f-display);font-size:32px;letter-spacing:-.016em;padding:10px 0;color:var(--paper)}
+  .menu-open .nav a::after{display:none}
+  .menu-open .nav .btn-led{display:flex;margin-top:28px;height:56px;font-family:var(--f-body);font-size:16px;letter-spacing:0;padding:0 22px;border:1px solid var(--led);color:#04120a}
+  .hero{--lx:50%;--ly:32%;min-height:max(700px,100svh)}
+  /* no celular o texto do orçamento ocupa a largura toda: fundo escurecido por igual para manter a leitura */
+  .cta .shade{background:linear-gradient(180deg,var(--ink) 0%,rgba(11,13,15,.72) 22%,rgba(11,13,15,.72) 78%,var(--ink) 100%)}
+  /* No celular o U desce do topo e o fundo da hero fica igual ao da página */
+  .lamp{top:0;height:calc(var(--ly) * 1.08 * 640 / 520)}
+  .room .wall{display:none}
+  /* Antes e depois: sem blur por trás no celular (deixava o arraste travado) */
+  .ba-knob,.ba-lbl{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .ba-knob{background:rgba(11,13,15,.9)}
+  .hero-foot{grid-template-columns:1fr}
+  .svc-grid,.ba-grid{grid-template-columns:1fr}
+  .svc-side,.ba-side{position:static}
+  .svc-prev{display:none}
+  .svc-desc{display:none}
+  .svc-list{padding-left:0}
+  .svc-list::after{display:none}
+  .svc-body{display:grid}
+  .svc.on .svc-row{transform:none}
+  .svc+.svc{margin-top:4px}
+  .svc-row{color:var(--paper);padding:16px 0}
+  .svc-row .ar{opacity:1;transform:rotate(90deg);color:var(--mute)}
+  .svc.on .svc-row .ar{transform:rotate(-90deg)}
+  .svc-body .ph{display:block;aspect-ratio:16/10;margin-bottom:16px}
+  .svc-body p{padding-bottom:16px}
+  .svc-body .svc-more{display:inline-flex;margin-bottom:28px;height:auto;padding:6px 0;border:0;background:none;gap:10px}
+  .proc-head{grid-template-columns:1fr}
+  .hs-intro{width:min(80vw,420px)}
+  .hs.native .pj .ph{height:auto}
+  .hs.native .pj.l .ph{width:84vw;aspect-ratio:4/3}
+  .hs.native .pj.p .ph{width:64vw;aspect-ratio:4/5}
+  .hs.native .pj.s .ph{width:74vw;aspect-ratio:1}
+  .hs.native .pj:nth-of-type(even){margin-top:0}
+  .hs-end{width:78vw}
+  .ba-desc{min-height:0}
+  .ba{aspect-ratio:4/5;max-height:none}
+  .steps{grid-template-columns:1fr;padding:0 0 0 36px;gap:44px}
+  .track{left:5px;right:auto;width:1px;top:6px;bottom:6px;height:auto}
+  .track i{transform:scaleY(var(--p,0));transform-origin:top}
+  .step::before{top:6px;left:-36px}
+  .about{grid-template-columns:1fr}
+  .how ol{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr;gap:36px}
+  .flow li:not(:last-child)::after{position:static;transform:rotate(90deg);width:26px;margin:6px 0 0 -4px}
+  .contacts{grid-template-columns:1fr}
+  .dlg{grid-template-columns:1fr}
+  .dlg .ph{aspect-ratio:16/10;min-height:0}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .brand small{display:none}
+  .brand svg{width:42px;height:44px}
+  .btns .btn{flex:1 1 100%}
+  .ftr-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(42px,13vw,64px)}
+  .caps li{grid-template-columns:1fr;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><g id="pl-word"><path d="M85.60 172.64C85.30 172.62 83.79 172.47 82.25 172.30C80.71 172.14 78.64 171.94 77.65 171.85C76.66 171.76 75.35 171.60 74.75 171.49C74.15 171.39 72.95 171.19 72.09 171.05C70.89 170.86 70.34 170.73 69.74 170.46C69.27 170.26 68.49 170.03 67.84 169.91C67.23 169.79 66.36 169.59 65.92 169.46C65.47 169.32 64.67 169.12 64.13 169.01C63.53 168.88 62.89 168.67 62.48 168.45C62.11 168.26 61.51 168.02 61.13 167.91C60.76 167.81 60.20 167.61 59.90 167.47C59.60 167.34 58.99 167.13 58.55 167.01C57.75 166.80 56.40 166.23 55.00 165.50C54.59 165.29 53.97 165.03 53.64 164.91C53.30 164.80 52.70 164.55 52.32 164.35C51.93 164.16 51.57 164.00 51.52 164.00C51.47 164.00 51.10 163.78 50.69 163.50C50.28 163.22 49.92 163.00 49.88 163.00C49.69 163.00 47.20 161.73 46.85 161.45C46.63 161.28 45.98 160.87 45.40 160.55C44.82 160.23 43.77 159.58 43.06 159.11C42.36 158.64 41.52 158.09 41.21 157.89C40.89 157.69 40.28 157.27 39.86 156.94C39.43 156.62 38.80 156.15 38.45 155.90C38.11 155.65 37.54 155.22 37.20 154.95C36.05 154.03 35.25 153.39 34.84 153.07C32.14 150.98 25.96 144.73 23.40 141.50C22.93 140.91 22.32 140.14 22.05 139.80C21.77 139.46 21.37 138.92 21.15 138.61C20.93 138.29 20.41 137.58 20.00 137.03C19.59 136.47 19.07 135.74 18.85 135.40C18.45 134.78 18.02 134.13 17.45 133.26C17.29 133.01 16.88 132.33 16.55 131.74C16.22 131.16 15.81 130.50 15.63 130.27C15.32 129.86 14.56 128.41 14.06 127.28C13.93 126.96 13.70 126.56 13.57 126.38C13.25 125.96 12.39 124.17 12.05 123.21C11.90 122.80 11.65 122.26 11.50 122.01C11.34 121.76 11.12 121.28 10.99 120.95C10.87 120.62 10.67 120.17 10.54 119.95C10.42 119.73 10.17 119.05 9.99 118.45C9.82 117.84 9.60 117.19 9.50 117.00C9.40 116.81 9.22 116.31 9.10 115.90C8.98 115.49 8.72 114.84 8.54 114.47C8.34 114.07 8.11 113.39 8.00 112.83C7.89 112.30 7.67 111.41 7.50 110.86C7.34 110.30 7.14 109.44 7.06 108.93C6.96 108.39 6.76 107.69 6.55 107.21C6.29 106.61 6.15 106.08 6.00 105.08C5.88 104.35 5.71 103.29 5.60 102.73C5.36 101.48 5.13 99.61 5.05 98.20C5.01 97.62 4.87 96.16 4.74 94.95C4.20 90.05 4.17 86.11 4.65 81.97C4.78 80.77 4.94 79.10 5.00 78.27C5.14 76.34 5.35 74.58 5.60 73.27C5.71 72.71 5.88 71.66 5.99 70.94C6.14 69.98 6.29 69.38 6.56 68.74C6.77 68.23 7.00 67.42 7.11 66.80C7.21 66.22 7.39 65.48 7.50 65.16C7.61 64.84 7.81 64.04 7.95 63.38C8.11 62.63 8.32 61.95 8.54 61.52C8.72 61.15 8.97 60.53 9.09 60.13C9.21 59.74 9.41 59.18 9.54 58.88C9.67 58.59 9.89 57.92 10.04 57.40C10.19 56.88 10.41 56.27 10.54 56.05C10.67 55.83 10.87 55.38 10.99 55.05C11.12 54.72 11.34 54.24 11.50 53.99C11.65 53.74 11.90 53.20 12.05 52.79C12.38 51.86 13.25 50.05 13.55 49.65C13.67 49.48 14.08 48.70 14.45 47.90C14.82 47.10 15.25 46.29 15.41 46.08C15.68 45.74 16.44 44.47 16.97 43.50C17.11 43.25 17.56 42.54 17.98 41.92C18.40 41.30 18.92 40.51 19.14 40.17C19.35 39.84 19.78 39.23 20.09 38.82C20.40 38.42 20.83 37.83 21.05 37.51C21.27 37.20 21.70 36.63 22.00 36.26C22.30 35.89 22.93 35.09 23.40 34.50C26.14 31.01 32.07 25.08 35.56 22.35C36.12 21.91 36.86 21.32 37.20 21.05C37.54 20.77 38.11 20.35 38.45 20.10C38.80 19.85 39.43 19.38 39.86 19.06C40.28 18.73 40.89 18.31 41.21 18.11C41.53 17.91 42.27 17.42 42.87 17.01C43.87 16.32 44.46 15.96 45.90 15.17C46.20 15.00 46.63 14.72 46.85 14.55C47.23 14.25 49.67 13.00 49.87 13.00C49.92 13.00 50.22 12.82 50.53 12.61C51.11 12.20 53.15 11.21 53.85 11.00C54.07 10.93 54.59 10.70 55.00 10.49C56.36 9.80 57.94 9.12 58.50 9.00C58.80 8.93 59.40 8.73 59.82 8.54C60.25 8.36 60.87 8.14 61.21 8.05C61.55 7.96 62.13 7.73 62.49 7.54C62.89 7.33 63.54 7.12 64.13 6.99C64.67 6.88 65.47 6.68 65.92 6.54C66.36 6.41 67.23 6.21 67.84 6.09C68.50 5.97 69.25 5.75 69.70 5.55C70.11 5.36 70.74 5.16 71.10 5.11C73.46 4.71 74.21 4.61 74.35 4.66C74.47 4.71 74.50 4.91 74.50 5.60L74.50 6.48L74.17 6.59C74.00 6.65 73.22 6.78 72.45 6.89C70.88 7.12 70.54 7.20 69.77 7.55C69.47 7.68 68.85 7.86 68.39 7.95C67.93 8.03 67.14 8.24 66.63 8.40C66.11 8.57 65.18 8.81 64.56 8.94C63.94 9.07 63.21 9.29 62.94 9.43C62.67 9.57 62.11 9.78 61.70 9.90C61.29 10.03 60.66 10.27 60.30 10.45C59.94 10.63 59.23 10.89 58.72 11.04C58.21 11.18 57.58 11.41 57.32 11.54C57.06 11.67 56.62 11.85 56.33 11.94C56.05 12.04 55.62 12.25 55.38 12.43C55.14 12.60 54.57 12.88 54.10 13.06C52.70 13.59 51.57 14.11 51.19 14.40C50.86 14.66 50.30 14.96 48.40 15.90C47.99 16.11 47.14 16.62 46.51 17.05C45.88 17.47 45.25 17.86 45.11 17.92C44.87 18.01 43.01 19.23 42.40 19.69C42.26 19.79 41.70 20.17 41.15 20.53C40.59 20.90 40.05 21.29 39.95 21.41C39.84 21.53 39.30 21.94 38.75 22.33C38.20 22.72 37.59 23.18 37.40 23.36C37.21 23.53 36.64 24.00 36.15 24.40C33.27 26.70 28.03 31.93 25.54 34.99C25.16 35.46 24.69 36.02 24.49 36.24C24.30 36.47 23.85 37.05 23.50 37.55C23.15 38.05 22.68 38.65 22.45 38.90C22.22 39.15 21.77 39.77 21.44 40.28C21.12 40.79 20.61 41.52 20.33 41.91C20.04 42.30 19.80 42.65 19.80 42.70C19.80 42.75 19.69 42.92 19.55 43.08C19.42 43.24 19.18 43.61 19.04 43.91C18.79 44.41 18.57 44.76 17.70 46.05C17.51 46.33 16.99 47.28 16.53 48.17C16.08 49.07 15.58 49.97 15.41 50.17C15.25 50.38 15.00 50.85 14.87 51.21C14.73 51.57 14.52 52.06 14.40 52.30C14.28 52.54 14.09 52.99 13.99 53.29C13.88 53.59 13.66 54.05 13.49 54.31C13.09 54.94 12.36 56.69 12.00 57.88C11.84 58.40 11.56 59.14 11.37 59.53C11.17 59.93 10.99 60.41 10.95 60.60C10.91 60.79 10.73 61.29 10.54 61.72C10.35 62.14 10.09 62.99 9.95 63.60C9.81 64.22 9.57 65.14 9.41 65.64C9.25 66.14 9.04 66.93 8.95 67.40C8.86 67.87 8.63 68.64 8.45 69.11C8.22 69.69 8.06 70.35 7.95 71.16C7.86 71.81 7.66 73.14 7.50 74.10C7.20 75.89 7.06 77.13 6.95 78.80C6.92 79.32 6.78 80.60 6.65 81.65C6.05 86.37 6.05 89.63 6.65 94.35C6.78 95.40 6.92 96.68 6.95 97.20C7.06 98.87 7.20 100.11 7.50 101.90C7.66 102.86 7.86 104.19 7.95 104.84C8.06 105.65 8.22 106.31 8.45 106.89C8.63 107.36 8.86 108.13 8.95 108.60C9.04 109.07 9.25 109.86 9.41 110.36C9.57 110.86 9.81 111.78 9.95 112.40C10.09 113.01 10.35 113.86 10.54 114.28C10.73 114.71 10.91 115.21 10.95 115.40C10.99 115.59 11.17 116.07 11.37 116.47C11.56 116.86 11.84 117.60 12.00 118.12C12.35 119.30 13.09 121.06 13.48 121.68C13.65 121.94 13.90 122.44 14.03 122.80C14.47 123.96 15.20 125.53 15.46 125.87C15.60 126.05 16.08 126.93 16.53 127.82C17.32 129.37 17.51 129.70 18.39 131.00C18.60 131.30 18.89 131.79 19.04 132.09C19.18 132.39 19.42 132.76 19.55 132.92C19.69 133.08 19.80 133.25 19.80 133.30C19.80 133.35 20.04 133.70 20.32 134.09C20.61 134.48 21.12 135.21 21.44 135.72C21.77 136.23 22.22 136.85 22.45 137.10C22.68 137.35 23.15 137.95 23.50 138.45C23.85 138.94 24.28 139.51 24.45 139.70C24.63 139.89 25.10 140.45 25.50 140.95C27.81 143.84 32.93 148.97 35.99 151.46C36.46 151.84 37.02 152.31 37.24 152.51C37.47 152.71 38.08 153.17 38.60 153.55C39.12 153.92 39.71 154.37 39.90 154.56C40.09 154.74 40.70 155.18 41.25 155.53C41.80 155.89 42.37 156.28 42.52 156.40C43.04 156.80 45.02 158.10 45.13 158.10C45.18 158.10 45.80 158.47 46.49 158.93C47.18 159.39 48.44 160.11 49.29 160.54C50.14 160.97 50.99 161.45 51.19 161.60C51.39 161.76 51.91 162.03 52.35 162.20C52.79 162.38 53.20 162.55 53.25 162.60C53.30 162.64 53.69 162.80 54.10 162.94C54.51 163.09 55.03 163.34 55.25 163.49C55.73 163.83 57.61 164.62 58.85 165.00C59.35 165.15 60.02 165.40 60.35 165.57C60.68 165.74 61.22 165.95 61.55 166.05C61.88 166.14 62.49 166.37 62.90 166.55C63.31 166.73 64.05 166.96 64.55 167.05C65.05 167.14 65.92 167.37 66.50 167.55C67.08 167.73 67.92 167.96 68.38 168.05C68.84 168.14 69.53 168.35 69.91 168.51C70.79 168.87 70.81 168.87 76.25 169.70C76.91 169.80 78.15 169.93 79.00 169.99C79.85 170.05 81.38 170.22 82.40 170.35C87.06 170.97 91.02 170.97 95.60 170.35C96.56 170.22 97.78 170.09 98.30 170.05C100.17 169.93 101.37 169.79 102.75 169.55C103.52 169.42 104.83 169.21 105.65 169.09C106.76 168.94 107.38 168.79 108.03 168.54C108.52 168.35 109.28 168.12 109.73 168.04C110.18 167.95 110.96 167.75 111.46 167.59C111.96 167.43 112.89 167.19 113.51 167.05C114.14 166.91 114.93 166.67 115.26 166.51C115.60 166.35 116.14 166.15 116.46 166.05C116.79 165.96 117.34 165.74 117.70 165.56C118.06 165.38 118.67 165.15 119.05 165.05C119.43 164.95 120.13 164.70 120.60 164.50C121.07 164.30 121.62 164.07 121.83 164.01C122.03 163.94 122.42 163.74 122.68 163.55C122.95 163.37 123.48 163.11 123.88 162.96C124.28 162.82 124.78 162.61 124.99 162.50C125.21 162.39 125.64 162.21 125.95 162.09C126.25 161.98 126.64 161.77 126.81 161.63C126.98 161.48 127.85 161.00 128.74 160.55C129.63 160.10 130.85 159.41 131.45 159.01C132.06 158.61 132.80 158.15 133.10 157.99C133.40 157.83 134.03 157.43 134.50 157.11C134.97 156.78 135.92 156.14 136.61 155.67C137.30 155.21 137.97 154.72 138.11 154.58C138.24 154.44 138.87 153.95 139.50 153.50C140.13 153.04 140.87 152.48 141.15 152.24C144.29 149.56 144.86 149.04 147.40 146.50C150.02 143.89 150.40 143.47 153.27 140.12C153.52 139.83 154.02 139.17 154.38 138.67C154.74 138.16 155.22 137.55 155.44 137.30C155.67 137.05 156.12 136.44 156.44 135.95C156.76 135.45 157.15 134.87 157.31 134.65C158.06 133.58 158.90 132.31 159.09 131.92C159.21 131.68 159.64 131.00 160.03 130.42C160.43 129.83 161.09 128.68 161.50 127.85C161.90 127.03 162.36 126.18 162.52 125.98C162.80 125.62 163.44 124.25 164.00 122.85C164.15 122.47 164.43 121.89 164.63 121.56C164.83 121.24 165.07 120.74 165.16 120.46C165.25 120.18 165.43 119.74 165.56 119.49C165.69 119.24 165.91 118.61 166.05 118.11C166.19 117.60 166.44 116.95 166.59 116.67C166.75 116.38 166.98 115.81 167.10 115.40C167.22 114.99 167.43 114.44 167.56 114.18C167.69 113.91 167.92 113.17 168.05 112.52C168.19 111.88 168.44 110.95 168.60 110.45C168.76 109.95 168.97 109.18 169.05 108.73C169.14 108.28 169.33 107.60 169.49 107.23C169.83 106.43 169.94 105.94 170.15 104.40C170.24 103.77 170.42 102.62 170.55 101.85C170.80 100.42 170.94 99.19 171.05 97.50C171.09 96.98 171.22 95.78 171.35 94.85C171.75 92.05 171.80 91.22 171.80 88.00C171.80 84.78 171.75 83.95 171.35 81.15C171.22 80.22 171.09 79.02 171.05 78.50C170.94 76.81 170.80 75.58 170.55 74.15C170.42 73.38 170.24 72.23 170.15 71.60C169.94 70.09 169.83 69.60 169.48 68.72C169.32 68.32 169.12 67.64 169.04 67.22C168.96 66.80 168.76 66.05 168.60 65.55C168.44 65.05 168.20 64.13 168.06 63.49C167.93 62.85 167.71 62.11 167.57 61.84C167.43 61.57 167.20 60.97 167.06 60.50C166.92 60.03 166.70 59.49 166.58 59.30C166.46 59.11 166.22 58.48 166.04 57.90C165.62 56.53 164.93 54.87 164.53 54.25C164.36 53.97 164.10 53.46 163.97 53.10C163.51 51.88 162.80 50.39 162.52 50.02C162.36 49.82 161.90 48.98 161.50 48.15C161.09 47.33 160.44 46.17 160.04 45.58C159.64 45.00 159.21 44.32 159.09 44.08C158.90 43.69 158.06 42.42 157.31 41.35C157.15 41.13 156.76 40.55 156.44 40.05C156.12 39.56 155.66 38.94 155.44 38.69C155.21 38.43 154.74 37.82 154.40 37.34C154.05 36.85 153.55 36.20 153.29 35.90C153.03 35.60 152.45 34.92 152.00 34.40C150.43 32.57 149.83 31.93 147.50 29.60C145.16 27.25 144.40 26.54 142.60 25.00C142.08 24.55 141.40 23.97 141.10 23.71C140.80 23.45 140.15 22.95 139.66 22.60C139.18 22.26 138.57 21.79 138.31 21.56C138.06 21.34 137.44 20.88 136.95 20.56C136.45 20.24 135.87 19.85 135.65 19.69C134.58 18.94 133.31 18.10 132.92 17.91C132.68 17.79 132.00 17.36 131.42 16.97C130.83 16.57 129.64 15.89 128.77 15.46C127.91 15.03 127.06 14.57 126.90 14.43C126.62 14.20 126.20 14.00 124.40 13.25C123.72 12.97 123.06 12.65 122.30 12.25C121.51 11.82 120.18 11.29 119.15 10.98C118.60 10.82 117.97 10.58 117.75 10.45C117.53 10.33 117.03 10.13 116.65 10.01C116.27 9.89 115.65 9.66 115.29 9.50C114.93 9.34 114.12 9.09 113.49 8.95C112.86 8.81 112.01 8.59 111.60 8.45C111.19 8.31 110.34 8.09 109.73 7.96C109.11 7.82 108.48 7.64 108.33 7.57C107.76 7.28 107.01 7.10 105.42 6.86C104.53 6.73 103.73 6.57 103.65 6.50C103.54 6.41 103.50 6.16 103.50 5.59C103.50 4.66 103.61 4.54 104.32 4.69C104.56 4.74 105.16 4.84 105.65 4.90C106.94 5.07 107.72 5.26 108.52 5.61C108.90 5.77 109.60 5.98 110.08 6.06C110.56 6.14 111.40 6.34 111.96 6.50C112.51 6.66 113.40 6.89 113.93 7.00C114.53 7.12 115.15 7.33 115.57 7.55C115.95 7.74 116.58 7.99 116.99 8.10C117.39 8.22 117.89 8.39 118.09 8.49C118.29 8.60 118.95 8.82 119.55 9.00C120.15 9.18 120.83 9.42 121.05 9.55C121.27 9.68 121.75 9.90 122.11 10.03C122.48 10.17 122.95 10.40 123.17 10.54C123.38 10.68 123.87 10.90 124.25 11.03C125.11 11.33 127.02 12.23 127.44 12.54C127.61 12.67 128.45 13.11 129.31 13.53C130.17 13.95 131.00 14.40 131.16 14.53C131.32 14.66 131.79 14.96 132.20 15.20C132.61 15.44 133.24 15.80 133.60 16.00C133.96 16.21 134.64 16.64 135.11 16.96C135.58 17.29 136.17 17.68 136.41 17.84C136.65 18.00 137.16 18.34 137.55 18.59C137.93 18.84 138.45 19.23 138.70 19.45C138.96 19.68 139.34 19.97 139.56 20.10C140.03 20.39 141.09 21.20 141.66 21.69C141.88 21.89 142.39 22.30 142.80 22.60C143.20 22.90 143.76 23.36 144.04 23.62C144.32 23.88 145.05 24.53 145.65 25.06C147.50 26.69 150.16 29.35 151.93 31.35C152.47 31.96 153.13 32.70 153.41 33.00C154.04 33.70 155.29 35.27 156.24 36.55C156.65 37.10 157.13 37.73 157.29 37.95C158.14 39.06 158.79 39.98 159.63 41.23C160.50 42.53 160.91 43.21 161.84 44.86C162.06 45.24 162.33 45.66 162.46 45.80C162.59 45.94 163.04 46.77 163.46 47.65C163.89 48.53 164.33 49.39 164.46 49.55C164.79 49.99 165.57 51.63 165.91 52.58C166.08 53.04 166.34 53.62 166.50 53.88C166.66 54.14 166.88 54.62 167.01 54.95C167.13 55.28 167.33 55.73 167.46 55.95C167.59 56.17 167.81 56.78 167.96 57.30C168.11 57.82 168.35 58.52 168.49 58.85C168.64 59.18 168.84 59.74 168.94 60.10C169.04 60.46 169.28 61.04 169.46 61.40C169.67 61.79 169.88 62.44 170.01 63.03C170.12 63.57 170.32 64.37 170.46 64.82C170.59 65.26 170.79 66.13 170.91 66.74C171.03 67.40 171.25 68.15 171.45 68.60C171.64 69.01 171.84 69.64 171.89 70.00C171.95 70.36 172.09 71.19 172.20 71.85C172.31 72.51 172.46 73.41 172.54 73.85C172.71 74.78 172.85 76.09 173.00 78.00C173.06 78.74 173.22 80.25 173.35 81.35C173.84 85.33 173.88 90.23 173.45 93.84C173.22 95.78 173.02 97.72 172.85 99.60C172.76 100.56 172.63 101.71 172.54 102.15C172.46 102.59 172.31 103.49 172.20 104.15C172.09 104.81 171.95 105.64 171.89 106.00C171.84 106.36 171.64 106.99 171.45 107.40C171.25 107.85 171.03 108.60 170.91 109.26C170.79 109.87 170.59 110.74 170.46 111.18C170.32 111.63 170.12 112.41 170.01 112.93C169.90 113.47 169.66 114.18 169.47 114.56C169.28 114.94 169.04 115.54 168.94 115.90C168.84 116.26 168.64 116.82 168.49 117.15C168.35 117.48 168.11 118.18 167.96 118.70C167.81 119.22 167.59 119.83 167.46 120.05C167.33 120.27 167.13 120.72 167.01 121.05C166.88 121.38 166.64 121.90 166.45 122.20C166.27 122.50 166.05 123.00 165.95 123.30C165.74 123.98 164.76 126.04 164.45 126.45C164.33 126.62 163.91 127.42 163.52 128.25C163.13 129.07 162.68 129.91 162.52 130.10C162.36 130.29 162.15 130.61 162.05 130.80C161.90 131.11 161.33 132.08 160.74 133.06C160.63 133.23 160.29 133.75 159.98 134.21C159.38 135.08 159.18 135.37 158.41 136.55C158.16 136.93 157.77 137.45 157.55 137.70C157.32 137.96 157.03 138.34 156.90 138.56C156.61 139.03 155.90 139.98 155.35 140.61C155.13 140.86 154.68 141.42 154.35 141.85C154.02 142.28 153.59 142.80 153.40 143.00C153.21 143.20 152.52 143.97 151.88 144.71C150.54 146.24 147.40 149.38 145.70 150.89C143.65 152.71 143.46 152.87 142.70 153.46C142.29 153.78 141.77 154.20 141.55 154.40C141.11 154.79 140.26 155.44 139.40 156.02C139.10 156.23 138.54 156.65 138.16 156.96C137.77 157.26 137.17 157.69 136.81 157.91C136.44 158.13 135.72 158.60 135.20 158.97C134.30 159.60 133.91 159.83 132.22 160.78C131.82 161.01 131.35 161.31 131.18 161.45C131.01 161.59 130.17 162.05 129.31 162.47C128.45 162.89 127.61 163.33 127.44 163.46C127.03 163.76 125.14 164.65 124.27 164.96C123.89 165.09 123.37 165.32 123.12 165.48C122.86 165.64 122.38 165.87 122.05 165.99C121.72 166.11 121.27 166.32 121.05 166.45C120.83 166.57 120.16 166.82 119.57 166.99C118.97 167.16 118.31 167.39 118.10 167.50C117.89 167.61 117.39 167.78 116.99 167.90C116.58 168.01 115.96 168.25 115.60 168.44C115.21 168.64 114.54 168.87 113.95 169.00C113.40 169.11 112.57 169.32 112.10 169.46C111.64 169.59 110.77 169.79 110.17 169.91C109.56 170.02 108.75 170.26 108.32 170.45C107.57 170.77 106.98 170.92 105.95 171.05C105.67 171.08 104.87 171.22 104.15 171.35C102.21 171.70 101.64 171.78 99.40 171.95C98.27 172.04 96.43 172.23 95.30 172.37C93.52 172.59 92.78 172.62 89.70 172.65C87.75 172.66 85.90 172.66 85.60 172.64ZM65.30 122.18C65.24 122.11 65.09 121.87 64.97 121.66C64.81 121.38 64.57 121.17 64.15 120.94C63.17 120.40 61.27 118.44 61.10 117.78C60.91 117.09 61.01 115.37 61.25 115.07C61.36 114.93 61.63 114.58 61.85 114.30C63.19 112.53 64.81 111.82 66.62 112.19C67.23 112.32 68.31 112.95 68.49 113.29C68.73 113.73 68.12 113.95 67.53 113.62C67.36 113.53 67.03 113.34 66.79 113.22C66.43 113.01 66.26 112.99 65.55 113.02C64.77 113.05 64.71 113.07 64.19 113.46C63.89 113.69 63.51 113.95 63.34 114.03C62.03 114.70 61.75 117.53 62.88 118.74C63.29 119.17 64.21 119.77 64.65 119.89C65.33 120.08 66.40 120.02 67.21 119.76C68.03 119.49 68.20 119.51 68.20 119.87C68.20 120.26 67.64 120.75 66.95 120.94C66.26 121.14 66.06 121.30 65.79 121.82C65.56 122.26 65.45 122.35 65.30 122.18ZM42.43 121.00C41.86 120.82 41.66 120.45 41.76 119.75C41.81 119.42 41.83 117.96 41.82 116.50C41.78 113.68 41.85 113.03 42.16 113.44C42.27 113.60 42.30 114.17 42.30 116.43L42.30 119.23L42.65 119.55C43.01 119.90 43.66 120.10 44.38 120.10C45.08 120.10 45.45 120.59 44.98 120.90C44.70 121.07 42.91 121.14 42.43 121.00ZM50.45 121.03C49.54 120.83 49.42 120.58 49.76 119.58C49.89 119.18 50.07 118.60 50.15 118.30C50.23 117.99 50.43 117.54 50.60 117.28C50.86 116.89 50.93 116.66 51.00 115.93C51.05 115.44 51.16 114.85 51.25 114.61C51.58 113.68 51.38 113.21 50.58 112.99C49.55 112.71 49.31 112.46 49.85 112.22C50.18 112.07 52.11 112.06 52.44 112.21C53.03 112.48 53.03 113.41 52.45 114.26C52.16 114.68 52.03 115.01 51.89 115.71C51.79 116.20 51.60 116.80 51.47 117.03C51.25 117.42 51.00 118.59 51.00 119.26C51.00 119.67 51.40 119.97 52.05 120.05C53.12 120.19 53.40 120.75 52.51 121.00C52.16 121.10 50.84 121.12 50.45 121.03ZM81.03 121.00C80.02 120.85 78.77 119.96 78.23 119.02C78.08 118.76 77.82 118.39 77.64 118.19C77.21 117.69 77.07 117.22 77.12 116.35C77.15 115.77 77.20 115.55 77.38 115.33C77.50 115.18 77.84 114.69 78.13 114.25C78.77 113.29 79.01 113.07 80.04 112.55C80.82 112.15 80.84 112.15 81.95 112.15L83.06 112.15L83.91 112.59C84.96 113.13 85.43 113.57 85.82 114.40C85.98 114.76 86.17 115.14 86.23 115.25C86.59 115.92 86.65 116.10 86.65 116.57C86.65 116.95 86.57 117.25 86.33 117.72C86.15 118.06 85.95 118.51 85.88 118.70C85.62 119.41 84.16 120.67 83.35 120.88C82.76 121.04 81.62 121.10 81.03 121.00ZM93.53 120.95C92.90 120.68 92.89 120.61 92.92 116.44L92.95 112.68L93.28 112.39L93.60 112.10L94.98 112.10C96.44 112.10 96.76 112.18 96.68 112.55C96.63 112.85 96.22 113.00 95.43 113.00C94.35 113.00 94.20 113.16 94.08 114.46C93.98 115.51 94.03 116.48 94.20 116.80C94.34 117.07 94.75 117.26 95.35 117.35C96.00 117.44 96.20 117.56 96.20 117.84C96.20 118.16 96.05 118.26 95.30 118.43C94.60 118.60 94.20 118.92 94.20 119.34C94.20 119.86 94.70 120.09 95.85 120.10C96.80 120.10 97.17 120.47 96.64 120.89C96.40 121.08 96.24 121.10 95.11 121.10C94.26 121.09 93.75 121.05 93.53 120.95ZM118.52 120.99C118.17 120.95 117.76 120.83 117.61 120.73C116.23 119.84 116.07 119.70 115.62 119.05L115.15 118.36L115.15 116.60L115.15 114.85L115.68 114.04C116.21 113.24 116.23 113.22 117.25 112.71C118.16 112.24 118.37 112.18 119.07 112.13C120.55 112.03 122.05 112.68 122.97 113.83C124.03 115.14 124.10 115.30 124.10 116.56C124.10 117.75 123.91 118.27 123.17 119.09C121.60 120.82 120.52 121.26 118.52 120.99ZM128.55 121.01C128.44 120.96 128.26 120.83 128.16 120.71C127.94 120.47 127.92 119.67 127.97 114.82L128.00 112.68L128.29 112.39L128.58 112.10L129.99 112.10C131.13 112.10 131.41 112.13 131.54 112.26C131.74 112.45 131.74 112.51 131.56 112.75C131.45 112.90 131.24 112.95 130.54 113.00C130.05 113.04 129.57 113.10 129.47 113.14C129.14 113.29 129.00 113.75 128.94 114.92C128.84 116.63 129.07 117.10 130.10 117.30C131.30 117.53 131.28 118.22 130.05 118.49C129.14 118.69 128.82 119.38 129.42 119.83C129.63 119.99 129.87 120.04 130.42 120.05C131.45 120.08 131.47 120.08 131.64 120.26C131.85 120.47 131.84 120.66 131.60 120.90C131.42 121.08 131.27 121.10 130.07 121.09C129.35 121.09 128.66 121.05 128.55 121.01ZM142.66 120.99C141.76 120.85 141.28 120.56 140.24 119.51C139.14 118.41 139.06 118.28 138.90 117.40C138.68 116.21 139.04 114.60 139.59 114.31C139.70 114.24 139.97 113.96 140.18 113.67C141.00 112.57 142.68 111.94 144.23 112.16C145.38 112.33 146.60 113.04 147.18 113.90C147.43 114.26 147.69 114.75 147.77 114.99C147.95 115.60 147.95 117.89 147.76 118.35C147.54 118.88 146.81 119.80 146.47 119.99C146.31 120.08 146.02 120.27 145.85 120.43C145.23 120.95 143.91 121.19 142.66 120.99ZM53.90 120.70C53.63 120.43 53.78 120.05 54.52 119.09C54.67 118.89 54.90 118.43 55.03 118.06C55.17 117.69 55.39 117.23 55.54 117.02C55.68 116.81 55.86 116.33 55.95 115.90C56.10 115.21 56.61 114.11 57.12 113.38C57.49 112.85 57.86 113.08 58.15 114.00C58.24 114.30 58.43 114.80 58.55 115.10C58.68 115.40 58.86 115.91 58.95 116.22C59.03 116.54 59.23 116.95 59.39 117.12C59.79 117.59 59.87 117.78 60.01 118.56C60.07 118.94 60.21 119.47 60.31 119.75C60.55 120.39 60.42 120.55 59.98 120.14C59.46 119.65 58.42 119.01 58.04 118.94C56.99 118.74 55.94 119.15 55.33 120.00C54.65 120.96 54.32 121.12 53.90 120.70ZM47.04 120.59C46.86 120.39 46.85 120.18 46.85 116.71C46.85 114.70 46.88 112.93 46.93 112.78C47.02 112.43 47.33 112.26 47.60 112.40C47.92 112.57 47.95 112.89 47.95 116.65C47.95 119.94 47.93 120.28 47.77 120.53C47.56 120.85 47.30 120.88 47.04 120.59ZM70.10 120.54C69.97 120.21 70.13 119.60 70.44 119.23C70.75 118.86 70.89 118.58 71.06 118.01C71.14 117.74 71.33 117.36 71.49 117.16C71.65 116.96 71.81 116.65 71.85 116.47C72.08 115.30 72.19 115.00 72.69 114.12C73.02 113.55 73.32 113.14 73.43 113.12C73.72 113.06 73.99 113.39 74.17 113.99C74.25 114.30 74.41 114.71 74.51 114.91C74.61 115.11 74.77 115.58 74.86 115.95C74.96 116.36 75.14 116.75 75.30 116.94C75.70 117.40 75.81 117.65 76.12 118.85C76.28 119.45 76.43 120.05 76.46 120.17C76.54 120.47 76.27 120.48 76.07 120.19C75.82 119.84 74.41 119.01 73.93 118.94C72.80 118.77 71.88 119.20 71.19 120.21C70.85 120.71 70.75 120.80 70.49 120.80C70.26 120.80 70.17 120.74 70.10 120.54ZM112.82 120.18C111.70 118.94 111.65 118.90 111.26 118.90C110.78 118.90 110.54 119.16 110.46 119.76C110.35 120.46 110.16 120.72 109.77 120.68C109.20 120.63 109.19 120.54 109.22 116.50C109.26 111.98 109.19 112.14 110.85 112.15C112.01 112.16 112.70 112.52 113.12 113.33C113.37 113.83 113.33 114.35 112.97 115.13C112.73 115.65 112.66 115.72 112.03 116.02C111.52 116.27 111.34 116.41 111.32 116.58C111.27 116.89 111.82 117.84 112.44 118.51C113.79 119.97 114.15 120.58 113.74 120.74C113.46 120.85 113.39 120.81 112.82 120.18ZM125.03 120.73C124.84 120.66 124.87 120.24 125.14 119.40C125.35 118.72 125.38 118.41 125.44 115.86C125.48 114.26 125.55 112.99 125.61 112.88C125.69 112.74 125.80 112.70 126.03 112.72C126.58 112.77 126.61 112.92 126.58 116.15L126.55 119.05L126.21 119.78C125.79 120.68 125.49 120.92 125.03 120.73ZM150.26 120.64C150.19 120.45 150.34 120.14 150.68 119.78C150.88 119.56 150.95 119.37 150.98 118.90C151.04 118.03 150.94 117.64 150.51 117.17C150.30 116.94 150.07 116.64 150.00 116.50C149.93 116.36 149.73 116.08 149.57 115.88C148.91 115.06 149.01 113.92 149.81 112.99C150.36 112.36 150.70 112.23 150.70 112.64C150.70 112.77 150.63 112.93 150.54 113.01C149.91 113.53 149.88 115.00 150.50 115.65C150.82 116.00 151.74 117.20 151.92 117.53C152.13 117.90 152.07 119.28 151.82 119.76C151.41 120.57 150.44 121.11 150.26 120.64ZM21.43 120.54C21.40 120.46 21.48 120.16 21.61 119.87C21.81 119.46 21.85 119.20 21.85 118.50L21.85 117.63L21.36 116.89C21.09 116.48 20.76 116.07 20.63 115.96C20.09 115.55 19.87 114.32 20.21 113.69C20.37 113.39 21.32 112.50 21.48 112.50C21.68 112.50 21.68 112.78 21.48 113.21C21.34 113.51 21.27 113.88 21.27 114.35C21.25 115.23 21.48 115.73 22.29 116.61C23.00 117.40 23.08 117.54 23.16 118.22C23.26 119.05 23.01 119.77 22.45 120.29C21.98 120.72 21.54 120.83 21.43 120.54ZM27.17 120.48C27.05 120.30 27.01 119.60 26.97 117.05C26.88 112.09 26.90 112.09 29.90 115.97C30.41 116.64 30.71 116.83 31.23 116.84C31.84 116.85 31.90 116.67 31.89 114.78C31.88 113.47 31.90 113.16 32.04 112.95C32.25 112.64 32.48 112.63 32.60 112.94C32.66 113.12 32.75 118.59 32.71 119.74C32.70 119.90 32.64 119.92 32.36 119.87C31.64 119.75 31.35 119.46 29.87 117.35C29.59 116.96 28.60 116.35 28.42 116.47C28.07 116.68 28.00 117.02 28.00 118.60C28.00 120.26 27.91 120.63 27.53 120.68C27.39 120.70 27.26 120.63 27.17 120.48ZM33.70 120.55C33.59 120.42 33.61 120.31 33.84 119.85C33.98 119.56 34.10 119.28 34.10 119.24C34.10 119.20 34.30 118.79 34.54 118.31C34.78 117.84 35.05 117.19 35.14 116.88C35.23 116.57 35.41 116.10 35.54 115.83C35.67 115.57 35.87 115.05 35.99 114.68C36.15 114.20 36.31 113.92 36.57 113.70C37.25 113.10 37.72 113.45 37.91 114.72C38.01 115.43 38.05 115.51 38.41 115.79C38.71 116.04 38.84 116.24 39.00 116.78C39.11 117.15 39.34 117.81 39.51 118.25C39.91 119.27 39.97 120.23 39.64 120.28C39.47 120.30 39.35 120.19 39.11 119.80C38.74 119.20 38.41 119.03 37.43 118.94C36.94 118.89 36.59 118.92 36.18 119.04C35.57 119.22 35.38 119.38 34.88 120.15C34.60 120.58 34.50 120.65 34.19 120.68C33.96 120.70 33.79 120.66 33.70 120.55ZM24.84 120.52C24.49 120.29 24.46 120.00 24.49 116.65C24.50 114.83 24.53 113.26 24.56 113.15C24.73 112.60 25.27 112.42 25.54 112.82C25.68 113.01 25.70 113.54 25.70 116.60C25.70 119.66 25.68 120.19 25.54 120.38C25.39 120.60 25.05 120.67 24.84 120.52ZM136.03 120.28C135.99 120.21 135.93 118.72 135.90 116.98C135.84 113.30 135.88 113.44 134.79 113.00C134.11 112.72 133.93 112.47 134.26 112.23C134.50 112.06 137.67 112.05 138.05 112.22C138.51 112.43 138.36 112.62 137.48 112.99C136.66 113.33 136.65 113.37 136.62 116.90C136.61 118.58 136.57 120.05 136.55 120.17C136.49 120.42 136.17 120.48 136.03 120.28ZM103.92 119.93C103.83 119.75 103.67 117.49 103.67 116.40C103.67 116.10 103.75 115.68 103.84 115.47L104.00 115.08L104.46 115.49C105.50 116.40 106.34 116.23 106.70 115.03C106.86 114.49 106.78 114.19 106.33 113.69C105.88 113.19 105.60 113.07 105.22 113.21C104.79 113.38 104.53 113.68 104.29 114.32C104.11 114.81 104.05 114.89 103.97 114.74C103.81 114.46 103.76 112.87 103.90 112.61C104.08 112.26 104.64 112.07 105.24 112.15C106.21 112.28 107.62 113.09 107.86 113.66C108.05 114.11 108.04 115.14 107.84 115.55C107.66 115.95 106.65 116.58 105.80 116.85C105.19 117.04 104.67 117.39 104.48 117.73C104.42 117.85 104.34 118.42 104.31 118.99C104.25 120.03 104.13 120.33 103.92 119.93ZM82.97 119.91C83.14 119.86 83.65 119.58 84.10 119.29C84.86 118.79 84.93 118.72 85.31 117.96C85.69 117.20 85.72 117.11 85.67 116.49C85.62 115.67 85.03 114.46 84.57 114.21C84.41 114.12 84.07 113.90 83.81 113.73C82.92 113.10 82.65 113.00 81.93 113.00C81.40 113.00 81.15 113.05 80.83 113.22C78.83 114.33 78.35 114.98 78.35 116.60C78.35 117.47 78.38 117.60 78.67 118.16C79.01 118.81 79.92 119.58 80.70 119.86C81.11 120.01 82.51 120.04 82.97 119.91ZM121.13 119.58C122.57 118.62 122.90 118.07 122.90 116.60C122.89 114.99 122.53 114.48 120.51 113.23C120.22 113.04 120.00 113.00 119.34 113.00C118.58 113.00 118.49 113.02 118.07 113.33C117.81 113.50 117.28 113.88 116.87 114.17C116.42 114.48 116.09 114.80 116.02 114.97C115.68 115.83 115.62 116.61 115.81 117.52C115.97 118.27 116.15 118.56 116.63 118.87C116.86 119.01 117.21 119.27 117.41 119.44C117.98 119.91 118.33 120.00 119.51 119.97C120.55 119.95 120.58 119.94 121.13 119.58ZM144.87 119.81C145.26 119.63 145.98 119.13 146.60 118.60C147.02 118.25 147.25 117.31 147.17 116.29C147.07 115.09 146.90 114.78 145.98 114.12C144.38 112.98 144.55 113.05 143.61 113.02C142.76 112.98 142.74 112.99 142.25 113.34C141.97 113.54 141.59 113.78 141.39 113.89C140.91 114.15 140.35 114.79 140.19 115.26C140.00 115.84 140.02 117.34 140.23 117.96C140.46 118.62 141.26 119.36 142.22 119.80C142.82 120.07 144.28 120.07 144.87 119.81ZM37.70 118.03C38.01 117.68 38.02 117.63 37.97 117.09C37.87 116.18 37.73 115.97 37.28 116.03C36.00 116.20 35.48 117.30 36.30 118.11C36.73 118.55 37.27 118.52 37.70 118.03ZM58.16 117.96C58.58 117.54 58.59 117.32 58.21 116.48C57.72 115.41 57.55 115.38 56.91 116.22C56.68 116.51 56.41 116.86 56.30 117.00C55.87 117.54 56.50 118.30 57.39 118.30C57.75 118.30 57.88 118.24 58.16 117.96ZM74.00 118.13C74.38 117.87 74.49 117.68 74.50 117.32C74.50 116.98 74.02 115.93 73.76 115.71C73.55 115.53 73.22 115.66 73.05 116.00C72.97 116.16 72.72 116.49 72.50 116.75C72.04 117.28 72.06 117.23 72.25 117.64C72.54 118.25 73.46 118.51 74.00 118.13ZM111.88 114.74C112.26 114.48 112.09 113.43 111.65 113.26C110.93 112.99 110.13 113.99 110.61 114.56C110.90 114.91 111.52 115.00 111.88 114.74ZM73.75 111.05C73.59 110.97 73.31 110.91 73.14 110.90C72.74 110.90 72.45 110.68 72.54 110.45C72.68 110.09 74.20 110.64 74.20 111.05C74.20 111.23 74.15 111.23 73.75 111.05ZM20.45 94.96C20.28 94.89 20.09 94.71 20.02 94.56C19.87 94.23 19.84 83.96 20.00 83.56C20.18 83.09 20.18 83.09 26.03 83.09C32.20 83.10 33.08 83.05 33.78 82.64C34.58 82.17 35.04 81.66 35.46 80.78C35.82 80.02 35.85 79.88 35.85 79.10C35.85 78.30 35.82 78.20 35.41 77.40C34.89 76.38 34.73 76.19 33.96 75.73C32.99 75.14 32.70 75.10 28.35 75.10C25.38 75.09 24.36 75.06 24.08 74.96C23.61 74.79 21.65 72.98 21.15 72.25C20.74 71.66 20.73 71.42 21.10 71.23C21.41 71.07 32.20 71.05 33.16 71.20C33.96 71.33 35.57 72.09 36.47 72.76C37.15 73.27 37.44 73.57 38.45 74.79C39.77 76.39 40.16 79.52 39.33 81.83C38.90 83.04 38.66 83.41 37.52 84.60C36.48 85.70 36.38 85.77 35.34 86.27C33.89 86.97 33.65 87.00 28.82 87.00C24.30 87.00 24.21 87.01 23.95 87.64C23.83 87.93 23.80 88.61 23.80 91.18C23.80 94.87 23.82 94.79 22.89 94.99C22.21 95.14 20.82 95.12 20.45 94.96ZM54.15 95.04C53.06 94.95 52.26 94.78 51.77 94.53C51.48 94.39 50.94 94.17 50.57 94.04C49.43 93.65 48.45 93.00 47.25 91.82C44.78 89.40 44.24 88.39 43.44 84.60C43.27 83.76 43.27 82.41 43.44 81.65C44.25 78.14 44.68 77.18 46.28 75.39C48.13 73.31 49.83 72.26 52.85 71.32C53.57 71.10 57.06 71.10 57.70 71.32C60.80 72.41 61.82 73.00 63.55 74.69C65.02 76.12 66.54 78.50 66.85 79.85C67.23 81.48 67.24 84.64 66.88 86.34C66.76 86.92 65.96 88.57 65.40 89.40C65.20 89.70 64.90 90.14 64.75 90.37C64.44 90.85 62.58 92.61 61.90 93.07C61.34 93.45 60.57 93.83 60.05 94.00C59.83 94.07 59.38 94.26 59.05 94.42C58.72 94.59 58.16 94.78 57.80 94.85C57.11 94.99 54.98 95.10 54.15 95.04ZM115.83 94.99C115.44 94.88 115.25 94.58 115.40 94.31C115.45 94.20 115.76 93.90 116.07 93.64C116.39 93.37 117.01 92.81 117.45 92.39C118.76 91.15 118.11 91.25 124.35 91.22C128.06 91.20 129.87 91.22 130.12 91.30C130.68 91.46 130.78 91.75 130.82 93.17C130.85 94.56 130.75 94.82 130.13 94.99C129.65 95.13 116.29 95.12 115.83 94.99ZM148.43 95.00C147.80 94.87 147.52 94.63 147.18 93.96C147.01 93.62 146.73 93.17 146.55 92.95C146.38 92.73 145.93 91.97 145.55 91.25C144.91 90.02 144.53 89.36 143.71 88.10C143.52 87.80 143.18 87.19 142.95 86.75C142.36 85.60 141.85 84.74 141.50 84.32C141.13 83.87 141.09 83.37 141.41 83.19C141.55 83.12 142.33 83.07 143.44 83.05C145.53 83.01 145.94 82.92 146.76 82.30C147.51 81.73 147.86 81.22 148.04 80.40C148.56 78.13 147.85 76.40 146.02 75.49L145.35 75.15L141.00 75.10C137.73 75.06 136.59 75.02 136.43 74.92C136.14 74.76 135.55 73.96 134.92 72.88C134.28 71.81 134.25 71.69 134.49 71.39L134.68 71.15L139.82 71.12C142.93 71.10 145.21 71.13 145.61 71.19C146.38 71.31 148.22 72.15 148.90 72.68C150.63 74.05 151.71 75.59 151.97 77.06C152.16 78.18 152.10 81.00 151.87 81.72C151.48 82.95 149.67 85.20 148.45 85.98C148.23 86.12 148.00 86.30 147.93 86.39C147.64 86.76 147.91 87.93 148.40 88.45C148.62 88.68 149.24 89.77 149.86 90.98C150.09 91.44 150.37 91.91 150.48 92.03C150.59 92.15 150.78 92.45 150.90 92.70C151.02 92.95 151.28 93.41 151.47 93.72C151.86 94.36 151.86 94.70 151.47 94.92C151.20 95.07 149.02 95.13 148.43 95.00ZM98.38 93.80C98.19 93.68 97.31 92.08 97.02 91.30C96.83 90.78 96.43 90.03 95.54 88.50C95.34 88.14 94.96 87.23 94.70 86.48C94.28 85.27 94.17 85.04 93.73 84.56C93.41 84.21 93.13 83.77 92.95 83.33C92.81 82.96 92.60 82.52 92.50 82.35C92.40 82.19 92.20 81.68 92.06 81.24C91.83 80.55 91.81 80.36 91.89 79.99C92.00 79.49 92.61 78.10 92.89 77.71C92.99 77.57 93.14 77.25 93.21 77.00C93.48 76.05 93.77 76.20 94.49 77.66C95.31 79.33 95.42 79.56 96.13 80.87C96.50 81.53 96.89 82.34 97.01 82.67C97.27 83.35 98.04 84.71 98.31 84.95C98.75 85.36 99.33 84.80 99.91 83.42C100.08 83.00 100.35 82.49 100.50 82.30C100.80 81.92 101.55 80.39 102.00 79.23C102.15 78.84 102.39 78.37 102.53 78.18C102.83 77.78 103.81 75.86 104.08 75.13C104.19 74.84 104.41 74.39 104.57 74.13C104.74 73.86 104.96 73.44 105.07 73.19C105.31 72.66 106.00 71.62 106.31 71.34C106.49 71.17 106.70 71.15 108.00 71.12C109.43 71.09 109.48 71.09 109.75 71.32C110.14 71.66 110.05 72.27 109.50 73.00C109.28 73.30 109.01 73.77 108.90 74.07C108.79 74.36 108.57 74.86 108.42 75.18C108.26 75.49 108.07 75.92 108.01 76.13C107.94 76.33 107.74 76.71 107.56 76.98C107.38 77.24 106.95 78.03 106.61 78.75C105.73 80.59 104.82 82.37 104.49 82.90C104.33 83.15 104.14 83.56 104.05 83.80C103.83 84.43 102.71 86.69 102.44 87.05C102.23 87.33 101.88 88.08 101.05 90.01C100.87 90.43 100.59 90.95 100.41 91.17C100.24 91.38 99.99 91.84 99.86 92.18C99.55 92.96 99.26 93.44 98.93 93.70C98.64 93.93 98.61 93.93 98.38 93.80ZM57.48 91.00C57.77 90.93 58.24 90.72 58.53 90.53C58.82 90.34 59.27 90.07 59.53 89.93C59.80 89.80 60.46 89.25 61.00 88.72C61.87 87.86 62.04 87.63 62.44 86.80C62.99 85.66 63.10 85.04 63.10 83.15C63.10 81.15 63.00 80.65 62.35 79.35C61.82 78.29 61.75 78.21 60.69 77.25C59.46 76.15 59.19 75.98 57.80 75.49C56.89 75.17 56.79 75.16 55.30 75.16C53.95 75.15 53.65 75.18 53.01 75.38C51.55 75.84 51.37 75.95 49.74 77.35C49.00 77.98 48.33 78.97 47.82 80.19C47.21 81.65 47.10 82.11 47.10 83.15C47.10 84.20 47.21 84.65 47.82 86.10C48.66 88.07 49.66 89.20 51.46 90.23C51.73 90.38 52.10 90.60 52.28 90.72C52.98 91.16 56.00 91.32 57.48 91.00ZM81.41 89.34C81.30 89.20 81.16 88.92 81.09 88.72C80.96 88.30 79.75 85.96 79.50 85.63C79.40 85.51 79.22 85.15 79.10 84.83C78.74 83.90 77.79 81.98 77.53 81.63C77.40 81.46 77.13 80.94 76.94 80.49C76.75 80.03 76.55 79.61 76.50 79.55C76.46 79.50 76.30 79.14 76.14 78.76C75.99 78.39 75.72 77.86 75.53 77.59C75.35 77.32 75.11 76.88 75.00 76.60C74.89 76.33 74.70 75.93 74.57 75.73C74.44 75.52 74.23 75.08 74.11 74.75C73.99 74.42 73.74 73.90 73.55 73.60C73.12 72.89 72.80 72.08 72.80 71.69C72.80 71.24 73.23 71.10 74.62 71.10C76.14 71.10 76.45 71.20 76.78 71.76C76.93 72.01 77.20 72.42 77.38 72.68C77.56 72.94 77.82 73.40 77.95 73.70C78.09 74.00 78.31 74.45 78.44 74.70C78.57 74.95 78.80 75.46 78.94 75.84C79.09 76.23 79.31 76.68 79.44 76.84C79.72 77.22 80.69 79.12 81.03 79.97C81.17 80.32 81.38 80.72 81.48 80.88C81.59 81.03 81.80 81.41 81.94 81.73C82.07 82.04 82.32 82.49 82.48 82.72C82.64 82.96 82.86 83.40 82.98 83.71C83.09 84.02 83.33 84.55 83.51 84.88L83.83 85.49L83.66 85.92C83.56 86.16 83.34 86.60 83.16 86.90C82.98 87.20 82.75 87.70 82.65 88.00C82.42 88.71 81.92 89.60 81.75 89.60C81.67 89.60 81.52 89.48 81.41 89.34ZM115.43 84.85C114.99 84.66 114.86 84.15 114.93 82.81C114.99 81.63 115.13 81.32 115.70 81.17C116.28 81.02 130.00 81.13 130.31 81.29C130.72 81.49 130.80 81.80 130.80 83.14C130.80 84.56 130.72 84.75 130.05 84.90C129.35 85.06 115.81 85.02 115.43 84.85ZM118.93 75.00C118.56 74.91 118.36 74.78 118.00 74.35C117.87 74.19 117.32 73.62 116.78 73.09C115.60 71.93 115.42 71.44 116.05 71.20C116.21 71.14 118.89 71.10 123.11 71.10C130.51 71.10 130.49 71.10 130.70 71.65C130.83 72.01 130.83 74.36 130.69 74.62C130.44 75.09 130.26 75.10 124.58 75.09C121.65 75.08 119.10 75.04 118.93 75.00Z" fill="#F5F5F5" fill-rule="evenodd"/><path d="M136.52 103.00C136.33 102.96 136.00 102.72 135.71 102.43C134.70 101.40 134.72 101.03 135.83 99.78C136.63 98.88 137.25 98.79 137.88 99.46C138.27 99.88 138.45 99.78 139.12 98.78C139.70 97.92 140.02 96.74 140.04 95.39C140.06 94.19 140.36 93.72 141.84 92.58C143.27 91.47 143.83 92.85 142.83 95.00C142.64 95.41 142.40 95.99 142.29 96.28C142.19 96.58 141.96 97.06 141.79 97.37C141.62 97.67 141.34 98.35 141.18 98.88C141.02 99.42 140.85 99.98 140.80 100.13C140.72 100.37 140.75 100.46 140.95 100.66C141.16 100.87 141.28 100.90 141.87 100.89C142.92 100.88 143.29 100.73 143.70 100.15C143.89 99.87 144.61 99.09 145.31 98.40C146.00 97.71 146.68 96.97 146.82 96.75C147.38 95.87 148.15 95.30 148.80 95.30C149.14 95.30 149.96 95.74 149.92 95.90C149.90 95.97 149.97 96.11 150.06 96.21C150.25 96.43 150.60 96.31 150.60 96.02C150.61 95.93 150.86 95.67 151.16 95.45C152.10 94.77 152.29 94.70 152.86 94.76C153.70 94.86 153.86 94.68 154.59 92.85C154.98 91.86 156.14 90.56 156.74 90.45C157.61 90.28 158.11 90.69 158.18 91.59C158.23 92.32 158.08 92.82 157.63 93.31C157.43 93.53 157.21 93.94 157.10 94.27C156.94 94.80 156.30 95.93 155.56 96.99C155.37 97.26 155.25 97.57 155.22 97.90C155.18 98.37 155.19 98.40 155.51 98.59C156.19 98.99 156.29 99.37 155.86 99.87C155.62 100.15 155.60 100.15 154.43 100.15C153.46 100.16 153.13 100.20 152.57 100.40L151.89 100.63L151.22 100.41C150.85 100.30 150.43 100.20 150.29 100.20C149.89 100.20 149.71 99.99 149.60 99.40C149.46 98.66 149.40 98.63 148.81 98.96C148.17 99.31 148.08 99.56 148.41 100.16C148.64 100.59 148.64 100.60 148.45 100.74C147.97 101.10 146.84 101.20 146.15 100.95C145.58 100.74 145.59 100.74 144.75 101.40C144.34 101.74 143.88 102.05 143.74 102.10C143.39 102.24 141.74 102.23 140.56 102.08L139.57 101.96L138.61 102.47C137.61 102.99 137.08 103.13 136.52 103.00ZM81.94 102.45C81.81 102.12 82.02 101.39 82.36 100.95C82.57 100.67 82.75 100.29 82.81 99.97C82.87 99.68 83.09 99.16 83.30 98.80C83.52 98.44 83.72 98.06 83.76 97.95C83.80 97.84 84.00 97.52 84.21 97.24C84.43 96.96 84.69 96.49 84.79 96.19C85.03 95.53 85.93 93.77 86.24 93.35C86.37 93.19 86.75 92.47 87.10 91.77C87.64 90.67 87.72 90.44 87.64 90.22C87.52 89.89 87.39 89.89 85.52 90.18C84.56 90.33 84.01 90.47 83.53 90.69C82.82 91.03 82.55 91.06 82.16 90.88C81.69 90.67 81.69 89.70 82.16 89.01C82.29 88.82 82.50 88.36 82.61 88.00C82.73 87.64 82.94 87.18 83.06 86.98C83.19 86.78 83.43 86.32 83.60 85.97C83.77 85.61 84.09 85.14 84.31 84.92C84.54 84.68 84.78 84.31 84.89 83.98C85.19 83.14 85.95 81.56 86.29 81.10C86.46 80.86 86.60 80.54 86.60 80.39C86.60 79.94 86.35 79.87 85.34 80.05C84.02 80.28 83.48 80.25 83.11 79.94C82.59 79.50 82.70 78.87 83.54 77.61C83.78 77.25 84.08 76.86 84.20 76.75C84.32 76.64 84.60 76.21 84.81 75.80C85.23 74.98 85.66 74.29 86.81 72.58C87.23 71.96 87.73 71.20 87.93 70.90C88.13 70.60 88.57 69.97 88.90 69.50C89.22 69.03 89.59 68.47 89.71 68.25C90.05 67.63 91.00 66.29 91.41 65.85C91.61 65.63 91.85 65.29 91.93 65.10C92.01 64.90 92.25 64.54 92.46 64.28C92.67 64.02 92.94 63.67 93.05 63.49C93.26 63.16 93.69 62.94 93.95 63.04C94.16 63.12 94.14 63.88 93.92 64.22C93.83 64.36 93.63 64.63 93.48 64.82C93.34 65.00 93.14 65.44 93.05 65.80C92.96 66.15 92.78 66.63 92.64 66.85C92.51 67.07 92.34 67.44 92.26 67.67C92.18 67.90 91.93 68.32 91.71 68.60C91.49 68.87 91.28 69.20 91.25 69.33C91.15 69.66 89.89 72.22 89.75 72.40C89.63 72.53 89.42 72.92 88.58 74.50C88.17 75.27 88.46 75.49 89.62 75.32C92.27 74.91 92.57 74.92 93.10 75.37C93.42 75.64 93.42 75.65 93.36 76.31C93.31 76.87 93.19 77.19 92.65 78.26C92.29 78.97 91.90 79.64 91.79 79.76C91.68 79.88 91.50 80.20 91.40 80.48C91.29 80.76 91.05 81.14 90.86 81.32C90.65 81.52 90.43 81.89 90.30 82.25C90.18 82.58 89.91 83.12 89.70 83.45C89.03 84.50 88.64 85.38 88.76 85.58C89.08 86.08 92.08 85.62 92.73 84.97C93.23 84.47 94.30 84.89 94.30 85.58C94.30 85.92 93.95 86.50 93.75 86.50C93.67 86.50 93.48 86.69 93.33 86.92C92.36 88.45 91.93 89.09 91.67 89.40C91.51 89.59 91.09 90.22 90.73 90.80C90.36 91.38 89.92 92.02 89.74 92.22C89.56 92.42 89.33 92.74 89.24 92.92C89.15 93.10 88.90 93.50 88.70 93.80C88.50 94.10 88.05 94.78 87.70 95.30C87.36 95.82 86.95 96.39 86.80 96.55C86.65 96.72 86.42 97.05 86.30 97.29C85.97 97.95 85.02 99.30 84.68 99.58C84.52 99.72 84.28 100.05 84.14 100.32C84.00 100.59 83.74 100.97 83.56 101.18C83.38 101.38 83.15 101.71 83.05 101.90C82.95 102.09 82.81 102.33 82.72 102.42C82.53 102.64 82.02 102.66 81.94 102.45ZM136.94 101.44C137.19 101.19 137.15 100.80 136.87 100.80C136.58 100.80 136.40 100.98 136.40 101.25C136.40 101.63 136.67 101.72 136.94 101.44ZM152.69 98.09C153.18 97.43 153.44 96.80 153.31 96.67C153.01 96.37 152.16 97.35 152.03 98.13C151.95 98.67 152.29 98.64 152.69 98.09Z" fill="#00F02B" fill-rule="evenodd"/></g></defs></svg><script>try{var t=localStorage.getItem("pl-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+
+<div id="intro">
+  <div class="room"></div>
+  <div class="stage">
+    <svg viewBox="-4 -42 188 262" aria-hidden="true" focusable="false">
+      <g class="mark">
+        <circle cx="89" cy="89" r="88" fill="#1E1D1F"/>
+        <use href="#pl-word"/>
+      </g>
+      <g class="ugrp" fill="none" stroke-linecap="round"><path class="u-glass" d="M76 -40 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-40" stroke-width="3.4"/></g>
+    </svg>
+    <svg class="intro-b9" viewBox="-4 -42 188 262" aria-hidden="true" focusable="false"><g class="ugrp" fill="none" stroke-linecap="round"><path class="u-halo" d="M76 -40 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-40" stroke="#00F02B" stroke-width="10" opacity="0"/></g></svg>
+    <svg class="intro-b3" viewBox="-4 -42 188 262" aria-hidden="true" focusable="false"><g class="ugrp" fill="none" stroke-linecap="round"><path class="u-glow" d="M76 -40 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-40" stroke="#00F02B" stroke-width="6" opacity=".8"/></g></svg>
+    <svg viewBox="-4 -42 188 262" aria-hidden="true" focusable="false"><g class="ugrp" fill="none" stroke-linecap="round">
+      <path class="u-tube" d="M76 -40 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-40" stroke="#00F02B" stroke-width="3"/>
+      <path class="u-core" d="M76 -40 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-40" stroke="#D8FFE0" stroke-width="1.1"/>
+    </g></svg>
+  </div>
+  <p class="load" aria-hidden="true"><span class="load-t">Carregando</span> <b class="load-n">0%</b></p>
+  <button class="skip" type="button">Pular abertura</button>
+</div>
+
+<a class="skip-link" href="#servicos">Pular para o conteúdo</a>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="POWER LED, início">
+      <svg viewBox="-2 -12 184 190" aria-hidden="true" focusable="false">
+        <circle cx="89" cy="89" r="88" fill="#1E1D1F"/>
+        <use href="#pl-word"/>
+        <path d="M76 -12 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-12" fill="none" stroke="#00F02B" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      <span><b>POWER LED</b><small>Sinalização e Projetos</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal" data-lenis-prevent>
+      <a href="#servicos">Serviços</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#antes-depois">Antes e depois</a>
+      <a href="#processo">Processo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-led btn-sm" href="#contato" data-wa>Solicitar orçamento</a>
+    </nav>
+    <button class="theme-btn" type="button" id="themeBtn" aria-label="Mudar para o tema claro">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
+    <a class="btn btn-led btn-sm" href="#contato" data-wa>Solicitar orçamento</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><i></i></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="room" aria-hidden="true">
+      <div class="wall"></div>
+      <div class="pool"></div>
+      <div class="spill"></div>
+      <div class="lamp">
+        <svg class="lamp-b28" viewBox="-260 -10 640 640" focusable="false"><path class="l-halo" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" fill="none" stroke="#00F02B" stroke-width="40" stroke-linecap="round"/></svg>
+        <svg class="lamp-b7" viewBox="-260 -10 640 640" focusable="false"><g class="l-u" fill="none" stroke-linecap="round">
+          <path class="l-glow" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke="#00F02B" stroke-width="20" pathLength="1"/>
+          <path class="l-run" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke="#F2FFF4" stroke-width="5" pathLength="1"/>
+        </g></svg>
+        <svg viewBox="-260 -10 640 640" focusable="false"><g fill="none" stroke-linecap="round">
+          <path class="l-glass" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke-width="12"/>
+          <path class="l-hit" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke="transparent" stroke-width="70"/>
+          <g class="l-u">
+            <path class="l-tube" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke="#1FFF4A" stroke-width="11" pathLength="1"/>
+            <path class="l-core" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke="#E4FFE9" stroke-width="3.5" pathLength="1"/>
+            <path class="l-run" d="M10 -10 V420 C10 450 32 466 60 466 C88 466 110 450 110 420 V-10" stroke="#FFFFFF" stroke-width="2.5" pathLength="1"/>
+          </g>
+        </g></svg>
+      </div>
+    </div>
+    <div class="wrap hero-inner">
+      <h1><span class="ln"><span>Sua marca</span></span><span class="ln"><span>merece ser <em>vista.</em></span></span></h1>
+      <div class="hero-foot">
+        <p>Transformamos ideias em projetos de iluminação, sinalização e comunicação visual que valorizam ambientes e fortalecem marcas.</p>
+        <div class="btns">
+          <a class="btn btn-ghost" href="#projetos">Conheça nossos projetos<svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+          <a class="btn btn-led" href="#contato" data-wa>Solicite um orçamento<svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec zone" id="servicos" aria-labelledby="svcTitle">
+    <div class="wrap svc-grid">
+      <div class="svc-side">
+        <p class="label">Serviços</p>
+        <h2 class="h2" id="svcTitle">Soluções que dão vida aos seus projetos.</h2>
+        <div class="svc-prev" id="svcPrev" aria-hidden="true"></div>
+        <p class="svc-desc" id="svcDesc" aria-live="polite"></p>
+      </div>
+      <ul class="svc-list" id="svcList"></ul>
+    </div>
+  </section>
+
+  <section class="sec zone hs" id="projetos" aria-labelledby="projTitle">
+    <div class="hs-pin">
+      <div class="hs-track" id="projTrack"></div>
+      <div class="wrap hs-bar" aria-hidden="true"><div class="hs-progress" id="projProgress"><i></i></div></div>
+    </div>
+  </section>
+
+  <section class="sec zone" id="antes-depois" aria-labelledby="baTitle" style="padding-top:clamp(48px,6vw,96px)">
+    <div class="wrap ba-grid">
+      <div class="ba-side">
+        <p class="label">Antes e depois</p>
+        <h2 class="h2" id="baTitle">A diferença que a luz faz.</h2>
+        <div class="ba-tabs" role="tablist" aria-label="Ambientes" id="baTabs"></div>
+        <p class="ba-desc" id="baDesc" aria-live="polite"></p>
+        <p class="mono" id="baTag">Imagens ilustrativas</p>
+      </div>
+      <div>
+        <div class="ba" id="ba">
+          <div class="ba-layer ba-after" id="baAfter"></div>
+          <div class="ba-layer ba-before" id="baBefore"></div>
+          <span class="ba-lbl l mono">Antes</span><span class="ba-lbl r mono">Depois</span>
+          <div class="ba-handle" id="baHandle" role="slider" tabindex="0" aria-label="Comparação antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="ba-knob"><svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="#F5F5F5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2L2 7l5 5M15 2l5 5-5 5"/></svg></span>
+          </div>
+        </div>
+        <p class="mono" style="margin-top:14px">Arraste a linha para comparar</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec proc zone" id="processo" aria-labelledby="procTitle">
+    <div class="wrap">
+      <div class="proc-head">
+        <div style="display:grid;gap:24px">
+          <p class="label">Processo</p>
+          <h2 class="h2" id="procTitle">Da ideia à execução.</h2>
+        </div>
+        <p class="lead">Quatro etapas, do primeiro contato à peça instalada.</p>
+      </div>
+      <ol class="steps" id="steps">
+        <li class="track" aria-hidden="true"><i></i></li>
+        <li class="step"><b>01</b><h3>Planejamento</h3><p>Entendemos a necessidade, o espaço e a identidade da marca para definir o que precisa ser feito.</p></li>
+        <li class="step"><b>02</b><h3>Desenvolvimento do projeto</h3><p>Definimos formatos, materiais, acabamentos e iluminação, e apresentamos a proposta para aprovação.</p></li>
+        <li class="step"><b>03</b><h3>Fabricação e produção</h3><p>As peças são produzidas conforme o projeto aprovado.</p></li>
+        <li class="step"><b>04</b><h3>Instalação e entrega</h3><p>Instalação no local e entrega do projeto finalizado.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec zone" id="sobre" aria-labelledby="aboutTitle">
+    <div class="wrap">
+      <div class="about-statement">
+        <p class="label">Sobre a POWER LED</p>
+        <h2 class="h2" id="aboutTitle">Mais do que iluminar, transformamos ideias em realidade.</h2>
+      </div>
+      <div class="about">
+        <figure class="ph" id="aboutMedia" data-rv="img"></figure>
+        <div class="about-txt">
+          <p>A POWER LED trabalha com soluções personalizadas em iluminação, sinalização e comunicação visual, desenvolvendo projetos que unem criatividade, qualidade e execução.</p>
+          <p>Cada projeto é pensado para atender às necessidades de cada cliente, valorizando ambientes e fortalecendo a presença visual das marcas.</p>
+        </div>
+      </div>
+      <ol class="flow" aria-label="O que a POWER LED faz">
+        <li><b>Projeto</b><span>Desenho sob medida para o espaço e a marca.</span></li>
+        <li><b>Fabricação</b><span>Produção das peças, com ou sem iluminação integrada.</span></li>
+        <li><b>Instalação</b><span>Montagem no local e entrega do projeto.</span></li>
+      </ol>
+      <div class="how" id="diferenciais">
+        <div style="display:grid;gap:20px;align-content:start">
+          <p class="label">Como trabalhamos</p>
+          <h3 class="h3">O cuidado que aparece no resultado.</h3>
+        </div>
+        <ol>
+          <li><h4>Projetos personalizados</h4><p>Cada peça é desenhada a partir das medidas, do uso e da identidade de quem vai ocupar o espaço.</p></li>
+          <li><h4>Qualidade de acabamento</h4><p>Emendas, fixação e distribuição da luz pensadas para ficarem bem resolvidas de perto e de longe.</p></li>
+          <li><h4>Ambientes corporativos</h4><p>Soluções para escritórios, lojas, recepções e fachadas de empresas.</p></li>
+          <li><h4>Atendimento próximo</h4><p>Contato direto durante o projeto, a produção e a instalação.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta zone" id="contato" aria-labelledby="ctaTitle">
+    <figure class="ph" id="ctaMedia"></figure>
+    <div class="shade"></div>
+    <div class="wrap">
+      <div class="cta-in">
+        <p class="label">Contato</p>
+        <h2 id="ctaTitle">Vamos dar vida ao seu próximo projeto?</h2>
+        <p>Conte para nós o que você precisa. Nossa equipe está pronta para desenvolver uma solução sob medida para sua empresa.</p>
+        <div style="display:grid;gap:12px;justify-items:start">
+          <a class="btn btn-led" id="ctaWa" href="#contato" data-wa>Solicitar um orçamento<svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+          <p class="cta-note" id="ctaNote" hidden>O botão abre o WhatsApp comercial assim que o número for configurado.</p>
+        </div>
+      </div>
+      <dl class="contacts" id="contacts"></dl>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="brand" href="#inicio" aria-label="POWER LED, início">
+          <svg viewBox="-2 -12 184 190" aria-hidden="true" focusable="false">
+        <circle cx="89" cy="89" r="88" fill="#1E1D1F"/>
+        <use href="#pl-word"/>
+        <path d="M76 -12 V34 C76 41.5 81.5 45.5 88.5 45.5 C95.5 45.5 101 41.5 101 34 V-12" fill="none" stroke="#00F02B" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+          <span><b>POWER LED</b><small>Sinalização e Projetos</small></span>
+        </a>
+        <p class="d">Iluminação, sinalização e comunicação visual sob medida para empresas e ambientes comerciais.</p>
+      </div>
+      <div><h4 class="mono">Navegação</h4><ul><li><a href="#servicos">Serviços</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#antes-depois">Antes e depois</a></li><li><a href="#processo">Processo</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li></ul></div>
+      <div><h4 class="mono">Serviços</h4><ul id="ftrSvc"></ul></div>
+      <div><h4 class="mono">Contato</h4><ul id="ftrContact"></ul></div>
+    </div>
+    <div class="ftr-bot mono">
+      <span>© <span id="yr">2026</span> POWER LED Sinalização e Projetos. Todos os direitos reservados.</span>
+      <span class="credit" id="credit">Desenvolvido por <b>Nevoy</b></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlgTitle" data-lenis-prevent></dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* =========================================================
+   CONFIGURAÇÃO · preencha com os dados reais da empresa.
+   Enquanto um campo estiver vazio, ele aparece como "A definir".
+   ========================================================= */
+const CONFIG = {
+  whatsapp: "5561999999999",        // só números, com DDI e DDD. Ex.: "5561999999999"
+  mensagemWhatsapp: "Olá! Vim pelo site da POWER LED e gostaria de solicitar um orçamento.",
+  instagram: "powerled.sinalizacao",       // usuário sem @. Ex.: "powerled"
+  email: "contato@powerledsinalizacao.com.br",
+  telefone: "(61) 3999-9999",
+  endereco: "Brasília, DF",
+  creditoUrl: ""      // link do crédito "Desenvolvido por Nevoy" no rodapé (site ou Instagram da Nevoy)
+};
+
+/* Serviços. Para usar fotos reais, preencha "foto" (caminho ou URL). */
+const SERVICOS = [
+  { id:"iluminacao", nome:"Iluminação corporativa", curto:"Luz pensada para o uso de cada ambiente: recepções, escritórios, lojas e áreas comuns.",
+    texto:"Projetos de iluminação para ambientes corporativos e comerciais. Definimos o tipo de luminária, a temperatura de cor e a distribuição da luz de acordo com a função de cada espaço e com a identidade da marca.",
+    itens:["Perfis lineares e pendentes de LED","Iluminação indireta e sancas","Destaque de marcas e fachadas","Luz para áreas de trabalho"], scene:"pendant", opts:{}, foto:"https://images.unsplash.com/photo-1461953181195-498094907c25?w=1200&q=70&auto=format&fit=crop" },
+  { id:"comunicacao", nome:"Comunicação visual", curto:"A identidade da marca levada para paredes, fachadas e ambientes internos.",
+    texto:"Peças que traduzem a identidade visual da empresa para o espaço físico, com ou sem iluminação integrada.",
+    itens:["Letra-caixa","Letras e logotipos em relevo","Logotipos com iluminação halo","Painéis e totens"], scene:"letters", opts:{}, foto:"https://images.unsplash.com/photo-1618518162330-e9855c4bd2d2?w=1200&q=70&auto=format&fit=crop" },
+  { id:"sinalizacao", nome:"Sinalização comercial", curto:"Fachadas, placas e direcionais que orientam as pessoas e reforçam a marca.",
+    texto:"Sinalização que ajuda o público a encontrar o caminho e reconhecer a marca: identificação de fachada, placas de ambiente, direcionais e sinalização de pavimentos.",
+    itens:["Identificação de fachada","Placas de ambiente e portas","Direcionais","Sinalização de pavimentos"], scene:"wayfinding", opts:{}, foto:"https://images.unsplash.com/photo-1768387214888-784c5e7e2e85?w=1200&q=70&auto=format&fit=crop" },
+  { id:"projetos", nome:"Projetos personalizados", curto:"Quando a peça não existe pronta, ela é desenhada do zero para o seu espaço.",
+    texto:"Partimos da necessidade do cliente e do espaço para chegar a um projeto com medidas, materiais e iluminação definidos antes da produção.",
+    itens:["Levantamento de medidas","Desenho técnico","Escolha de materiais","Aprovação antes da produção"], scene:"blueprint", opts:{}, foto:"https://images.unsplash.com/photo-1781888688940-5730c3fd5baf?w=1200&q=70&auto=format&fit=crop" },
+  { id:"mdf", nome:"Estruturas e peças em MDF", curto:"Painéis ripados, displays, balcões e peças decorativas sob medida.",
+    texto:"Estruturas e peças em MDF cortadas e acabadas sob medida, que podem receber iluminação embutida para criar profundidade e destaque.",
+    itens:["Painéis ripados","Displays e expositores","Balcões e recepções","Peças decorativas"], scene:"slats", opts:{ dark:true }, foto:"midia/mdf.webp" },
+  { id:"fabricacao", nome:"Fabricação e instalação", curto:"Produção das peças e instalação no local, com o acabamento previsto no projeto.",
+    texto:"Acompanhamos o projeto até o fim: produção das peças, montagem dos componentes de iluminação e instalação no local.",
+    itens:["Corte e usinagem","Montagem de componentes de LED","Instalação no local","Entrega do projeto"], scene:"cnc", opts:{}, foto:"https://images.unsplash.com/photo-1756736668751-dbe8bfed8a1a?w=1200&q=70&auto=format&fit=crop" }
+];
+
+/* Projetos realizados pela POWER LED. Para adicionar um: copie uma linha, troque nome, categoria e descrição
+   e coloque fotos e vídeos (.mp4) da pasta midia em "fotos" (a primeira vira a capa; use uma foto).
+   "formato" define a proporção na galeria: "l" horizontal, "p" vertical, "s" quadrado. */
+const PROJETOS = [
+  { nome:"Batista & Rocha Advogados", cat:"Comunicação visual", desc:"Logotipo e letras em relevo aplicados na parede de cimento queimado da recepção do escritório.", scene:"letters", opts:{}, formato:"p", fotos:["midia/batista-rocha.jpg", "midia/video2.mp4"] },
+  { nome:"Neon Stay a little longer", cat:"Projetos personalizados", desc:"Frase em neon de LED na cor âmbar, montada na nossa oficina e instalada na parede do ambiente.", scene:"neon", opts:{}, formato:"l", fotos:["midia/neon-stay.jpg", "midia/video1.mp4"] },
+  { nome:"Instituto FMA", cat:"Comunicação visual", desc:"Logotipo e letras com acabamento dourado espelhado sobre o porcelanato da recepção da clínica.", scene:"halo", opts:{}, formato:"p", fotos:["midia/instituto-fma.jpg", "midia/video3.mp4"] }
+];
+
+/* Antes e depois. Para fotos reais, preencha fotoAntes e fotoDepois. */
+const ANTES_DEPOIS = [
+  { nome:"Fachada", desc:"Fachada da Venice Estética. Antes, uma parede lisa sem identificação. Depois, logotipo em letras com iluminação halo e perfis de LED nas laterais: a marca passa a ser vista da rua, de dia e à noite.",
+    antes:{ scene:"facade", opts:{ text:"ATELIÊ", off:true, label:"Fachada à noite com letreiro apagado" } }, depois:{ scene:"facade", opts:{ text:"ATELIÊ", label:"Fachada à noite com letreiro iluminado" } }, fotoAntes:"midia/venice-antes.webp", fotoDepois:"midia/venice-depois.webp" }
+];
+
+/* ---------------- Cenas ilustrativas (SVG) ----------------
+   Desenhadas no navegador enquanto não há fotos reais. */
+let SID = 0;
+function rnd(seed){ let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+function wrapSvg(inner, label){ return `<svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${label}" focusable="false">${inner}</svg>`; }
+function fx(i){
+  return `<filter id="g${i}" filterUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="G${i}" filterUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><feGaussianBlur stdDeviation="26"/></filter>
+  <filter id="B${i}" filterUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><feGaussianBlur stdDeviation="9"/></filter>
+  <radialGradient id="vg${i}" cx="50%" cy="48%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".7"/></radialGradient>`;
+}
+const vignette = i => `<rect width="1600" height="1000" fill="url(#vg${i})"/>`;
+const noise = (i, seed, a) => `<filter id="n${i}" filterUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="${seed}"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 ${a}"/></feComponentTransfer></filter>`;
+
+const SCENES = {
+  facade(o){
+    const i = ++SID, lc = o.cool ? "#EEF6FF" : "#FFF4DE", gc = o.cool ? "#BFD9FF" : "#FFD9A0";
+    const stack = !!o.stack, text = o.text || "SUA MARCA", off = !!o.off;
+    let joints = "";
+    for (let x = -800; x <= 2400; x += 160) joints += `<line x1="${x}" y1="96" x2="${x}" y2="330" stroke="#1A1E22" stroke-width="2"/>`;
+    for (let y = 150; y < 330; y += 60) joints += `<line x1="-800" y1="${y}" x2="2400" y2="${y}" stroke="#15181B" stroke-width="2"/>`;
+    let mull = ""; for (let x = 180; x <= 1420; x += 155) mull += `<rect x="${x-3}" y="506" width="6" height="214" fill="#07080A"/>`;
+    let cones = "", dl = "";
+    for (let x = 250; x < 1400; x += 155) { cones += `<polygon points="${x-5},506 ${x+5},506 ${x+110},1120 ${x-110},1120" fill="url(#cn${i})"/>`; dl += `<circle cx="${x}" cy="503" r="4" fill="#fff"/>`; }
+    let interior = "";
+    const r = rnd(7 + (text.length * 13));
+    for (let k = 0; k < 7; k++) { const x = 230 + k * 170 + r() * 40; interior += `<line x1="${x}" y1="506" x2="${x}" y2="${560 + r()*20}" stroke="#2a2016" stroke-width="2"/>` + (off ? `<circle cx="${x}" cy="${566 + r()*20}" r="11" fill="#2e2a25"/>` : `<circle cx="${x}" cy="${566 + r()*20}" r="11" fill="${gc}" opacity=".9" filter="url(#g${i})"/>`); }
+    if (off) { cones = ""; dl = dl.replace(/fill="#fff"/g, 'fill="#2b2f33"'); }
+    const band = stack ? `<rect x="590" y="250" width="420" height="230" fill="#0B0D0F" stroke="#1C2024" stroke-width="2"/>` : `<rect x="180" y="330" width="1240" height="150" fill="#0B0D0F" stroke="#1C2024" stroke-width="2"/>`;
+    const words = stack ? text.split(" ") : [text];
+    const tx = (fill, extra) => words.map((w, k) => stack
+      ? `<text x="800" y="${348 + k * 104}" text-anchor="middle" font-family="Saira,Geist,system-ui,sans-serif" font-weight="600" font-size="88" letter-spacing="14" fill="${fill}" ${extra}>${w}</text>`
+      : `<text x="800" y="442" text-anchor="middle" font-family="Saira,Geist,system-ui,sans-serif" font-weight="600" font-size="104" letter-spacing="24" fill="${fill}" ${extra}>${w}</text>`).join("");
+    const halo = stack ? `<ellipse cx="800" cy="365" rx="300" ry="200" fill="${gc}" opacity=".16" filter="url(#G${i})"/>` : `<ellipse cx="800" cy="405" rx="640" ry="130" fill="${gc}" opacity=".14" filter="url(#G${i})"/>`;
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="sk${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05070A"/><stop offset="1" stop-color="#0E1319"/></linearGradient>
+      <linearGradient id="gl${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${off ? "#16181a" : o.cool ? "#1d2a36" : "#3b2b19"}"/><stop offset=".55" stop-color="${off ? "#0f1012" : o.cool ? "#121a22" : "#24190f"}"/><stop offset="1" stop-color="#0c0a08"/></linearGradient>
+      <linearGradient id="cn${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${lc}" stop-opacity=".22"/><stop offset="1" stop-color="${lc}" stop-opacity="0"/></linearGradient>
+      <linearGradient id="fl${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101214"/><stop offset="1" stop-color="#050607"/></linearGradient>
+      <linearGradient id="fd${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050607" stop-opacity="0"/><stop offset="1" stop-color="#050607" stop-opacity=".95"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#sk${i})"/>
+      <g transform="translate(${o.sx || 0} ${o.dy || 0})">
+      <rect x="-800" y="96" width="3200" height="626" fill="#111417"/>
+      ${joints}
+      <rect x="-800" y="92" width="3200" height="6" fill="#1b1f23"/>
+      <g id="rf${i}">
+        ${off ? "" : halo}${band}
+        ${off ? tx("#24272a", "") : `<g class="sign-lit">${tx(gc, `opacity=".55" filter="url(#G${i})"`)}${tx(lc, `filter="url(#g${i})"`)}</g>`}
+        <rect x="160" y="480" width="1280" height="26" fill="#0E1114"/>
+        ${off ? `<rect x="170" y="502" width="1260" height="4" fill="#1f2326"/>` : `<rect x="170" y="502" width="1260" height="4" fill="${lc}" filter="url(#g${i})"/>`}
+        <rect x="180" y="506" width="1240" height="214" fill="url(#gl${i})"/>
+        ${off ? `<ellipse cx="420" cy="620" rx="160" ry="60" fill="#c9d4cf" opacity=".05" filter="url(#G${i})"/>` : `<ellipse cx="800" cy="640" rx="560" ry="70" fill="${gc}" opacity=".13" filter="url(#G${i})"/>`}
+        <rect x="560" y="640" width="480" height="80" fill="#140f0b"/>
+        ${interior}${mull}${dl}
+      </g>
+      <rect x="-800" y="720" width="3200" height="420" fill="url(#fl${i})"/>
+      <use href="#rf${i}" transform="matrix(1 0 0 -1 0 1442)" opacity=".2" filter="url(#B${i})"/>
+      <rect x="-800" y="720" width="3200" height="420" fill="url(#fd${i})"/>
+      ${cones}
+      <rect x="-800" y="719" width="3200" height="2" fill="#1d2125"/>
+      </g>
+      ${vignette(i)}`, o.label || "Fachada comercial à noite com letreiro iluminado");
+  },
+
+  corridor(o){
+    const i = ++SID, lc = o.off ? "#D9E3DC" : o.cool ? "#F2F8FF" : "#FFF6E6";
+    const u = z => (1 - 1/z) / (1 - 1/4);
+    let strips = "", floor = "", doors = "";
+    if (o.off) {
+      const fy = y => 1000 - y * (390 / 330);
+      for (const xn of [520, 1080]) for (const [z, on] of [[1.25, 1], [1.9, 0], [2.8, 1]]) {
+        const xf = 800 + (xn - 800) * 0.25, z1 = z + 0.22, a = u(z), b = u(z1), w0 = 70 / z, w1 = 70 / z1;
+        const x0 = xn + (xf - xn) * a, y0 = 330 * a, x1 = xn + (xf - xn) * b, y1 = 330 * b;
+        const pts = `${x0-w0},${y0} ${x0+w0},${y0} ${x1+w1},${y1} ${x1-w1},${y1}`;
+        strips += on ? `<polygon points="${pts}" fill="${lc}" opacity=".7"/>` : `<polygon points="${pts}" fill="#2a2e2c"/>`;
+        if (on) floor += `<polygon points="${x0-w0},${fy(y0)} ${x0+w0},${fy(y0)} ${x1+w1},${fy(y1)} ${x1-w1},${fy(y1)}" fill="${lc}"/>`;
+      }
+    }
+    for (const xn of (o.off ? [] : [330, 800, 1270])) {
+      const xf = 800 + (xn - 800) * 0.25;
+      for (let z = 1.02; z < 3.9; z += 0.32) {
+        const z1 = Math.min(z + 0.24, 3.98), a = u(z), b = u(z1);
+        const x0 = xn + (xf - xn) * a, y0 = 330 * a, x1 = xn + (xf - xn) * b, y1 = 330 * b, w0 = 15 / z, w1 = 15 / z1;
+        strips += `<polygon points="${x0-w0},${y0} ${x0+w0},${y0} ${x1+w1},${y1} ${x1-w1},${y1}" fill="${lc}"/>`;
+        const fy = y => 1000 - y * (390 / 330);
+        floor += `<polygon points="${x0-w0*2},${fy(y0)} ${x0+w0*2},${fy(y0)} ${x1+w1*2},${fy(y1)} ${x1-w1*2},${fy(y1)}" fill="${lc}"/>`;
+      }
+    }
+    for (const z of [1.35, 1.9, 2.8]) {
+      const a = u(z), a2 = u(z + 0.18);
+      for (const side of [0, 1]) {
+        const X = t => side ? 1600 - 600 * t : 600 * t;
+        const top = t => 330 * t + (1000 - 390 * t - 330 * t) * 0.18, bot = t => 1000 - 390 * t;
+        doors += `<polygon points="${X(a)},${top(a)} ${X(a2)},${top(a2)} ${X(a2)},${bot(a2)} ${X(a)},${bot(a)}" fill="#1c2024"/>`;
+        doors += `<polygon points="${X(a)},${top(a)} ${X(a2)},${top(a2)} ${X(a2)},${bot(a2)} ${X(a)},${bot(a)}" fill="none" stroke="#2a2f34" stroke-width="2"/>`;
+      }
+    }
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="bw${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2f35"/><stop offset="1" stop-color="#15181b"/></linearGradient>
+      <linearGradient id="lw${i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d0f11"/><stop offset="1" stop-color="#1a1d21"/></linearGradient>
+      <linearGradient id="rw${i}" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#0d0f11"/><stop offset="1" stop-color="#1a1d21"/></linearGradient>
+      <linearGradient id="fl${i}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0a0b0c"/><stop offset="1" stop-color="#1b1e21"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="#0c0e10"/>
+      <polygon points="0,0 1600,0 1000,330 600,330" fill="#121518"/>
+      <polygon points="0,0 600,330 600,610 0,1000" fill="url(#lw${i})"/>
+      <polygon points="1600,0 1000,330 1000,610 1600,1000" fill="url(#rw${i})"/>
+      <polygon points="0,1000 1600,1000 1000,610 600,610" fill="url(#fl${i})"/>
+      <rect x="600" y="330" width="400" height="280" fill="url(#bw${i})"/>
+      <rect x="740" y="400" width="120" height="210" fill="${lc}" opacity=".18"/>
+      <rect x="740" y="400" width="120" height="210" fill="none" stroke="#3a4046" stroke-width="2"/>
+      ${doors}
+      <g opacity=".22" filter="url(#B${i})">${floor}</g>
+      <g filter="url(#G${i})" opacity=".55">${strips}</g>
+      <g filter="url(#g${i})">${strips}</g>
+      ${o.off ? `<rect width="1600" height="1000" fill="#000" opacity=".32"/>` : ""}
+      ${vignette(i)}`, o.label || "Corredor corporativo com perfis lineares de LED no forro");
+  },
+
+  plainwall(o){
+    const i = ++SID;
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="pw${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f2e2b"/><stop offset="1" stop-color="#1b1a19"/></linearGradient>
+      <linearGradient id="dc${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9C2" stop-opacity=".16"/><stop offset="1" stop-color="#FFE9C2" stop-opacity="0"/></linearGradient>
+      <linearGradient id="fl${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121110"/><stop offset="1" stop-color="#060505"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="#0a0908"/>
+      <rect width="1600" height="802" fill="url(#pw${i})"/>
+      <polygon points="470,0 530,0 700,802 300,802" fill="url(#dc${i})"/>
+      <polygon points="1070,0 1130,0 1300,802 900,802" fill="url(#dc${i})"/>
+      <circle cx="500" cy="4" r="7" fill="#FFE9C2" filter="url(#g${i})"/><circle cx="1100" cy="4" r="7" fill="#FFE9C2" filter="url(#g${i})"/>
+      <rect x="0" y="796" width="1600" height="6" fill="#141312"/>
+      <rect x="0" y="802" width="1600" height="198" fill="url(#fl${i})"/>
+      <rect x="360" y="640" width="880" height="360" fill="#151413"/>
+      <rect x="340" y="626" width="920" height="20" fill="#232120"/>
+      <rect width="1600" height="1000" fill="#000" opacity=".18"/>
+      ${vignette(i)}`, o.label || "Recepção com parede lisa e iluminação pontual");
+  },
+
+  slats(o){
+    const i = ++SID, r = rnd(o.dark ? 31 : 11);
+    const base = o.dark ? ["#4a2f1c","#5e3d25","#3d2717"] : ["#8a5a34","#a8754a","#77492a"];
+    let s = "";
+    for (let x = 4; x < 1600; x += 44) s += `<rect x="${x}" y="0" width="32" height="800" fill="url(#wd${i})"/><rect x="${x}" y="0" width="32" height="800" fill="#000" opacity="${(r()*0.25).toFixed(2)}"/>`;
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="wd${i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${base[2]}"/><stop offset=".45" stop-color="${base[1]}"/><stop offset="1" stop-color="${base[0]}"/></linearGradient>
+      <linearGradient id="lb${i}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFE7BF" stop-opacity=".75"/><stop offset=".45" stop-color="#FFE7BF" stop-opacity="0"/></linearGradient>
+      <linearGradient id="lt${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7BF" stop-opacity=".45"/><stop offset=".3" stop-color="#FFE7BF" stop-opacity="0"/></linearGradient>
+      <linearGradient id="dk${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".2"/><stop offset=".55" stop-color="#000" stop-opacity=".62"/><stop offset="1" stop-color="#000" stop-opacity=".1"/></linearGradient>
+      <linearGradient id="fl${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16120e"/><stop offset="1" stop-color="#060505"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="#0a0806"/>
+      ${s}
+      <rect width="1600" height="800" fill="url(#dk${i})"/>
+      <rect width="1600" height="800" fill="url(#lb${i})" style="mix-blend-mode:screen"/>
+      <rect width="1600" height="800" fill="url(#lt${i})" style="mix-blend-mode:screen"/>
+      <rect x="0" y="0" width="1600" height="5" fill="#FFF3DD" filter="url(#g${i})"/>
+      <rect x="0" y="796" width="1600" height="6" fill="#FFF3DD" filter="url(#g${i})"/>
+      <rect x="0" y="802" width="1600" height="198" fill="url(#fl${i})"/>
+      <rect x="0" y="806" width="1600" height="40" fill="#FFE7BF" opacity=".18" filter="url(#G${i})"/>
+      <rect x="360" y="640" width="880" height="360" fill="#0e0d0c"/>
+      <rect x="340" y="626" width="920" height="20" fill="#1d1b19"/>
+      <rect x="350" y="646" width="900" height="3" fill="#FFF3DD" opacity=".8" filter="url(#g${i})"/>
+      <rect x="360" y="649" width="880" height="120" fill="#FFE7BF" opacity=".06"/>
+      ${vignette(i)}`, o.label || "Painel ripado em MDF com iluminação embutida");
+  },
+
+  halo(o){
+    const i = ++SID, hc = o.green ? "#00F02B" : "#FFE2B0";
+    return wrapSvg(`<defs>${fx(i)}${noise(i, 4, .1)}
+      <radialGradient id="sp${i}" cx="50%" cy="0%" r="70%"><stop offset="0" stop-color="#3a3d40"/><stop offset="1" stop-color="#151719"/></radialGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#sp${i})"/>
+      <rect width="1600" height="1000" filter="url(#n${i})"/>
+      <circle cx="800" cy="430" r="215" fill="${hc}" opacity=".85" filter="url(#G${i})"/>
+      <circle cx="800" cy="430" r="190" fill="${hc}" opacity=".6" filter="url(#B${i})"/>
+      <circle cx="800" cy="430" r="178" fill="#101112"/>
+      <circle cx="800" cy="430" r="178" fill="none" stroke="#2c2f32" stroke-width="3"/>
+      <path d="M720 520 L800 330 L880 520 M748 455 H852" fill="none" stroke="#2a2d30" stroke-width="22" stroke-linejoin="round"/>
+      <text x="800" y="790" text-anchor="middle" font-family="Saira,Geist,system-ui,sans-serif" font-weight="600" font-size="92" letter-spacing="30" fill="${hc}" opacity=".9" filter="url(#B${i})">ESTÚDIO</text>
+      <text x="800" y="790" text-anchor="middle" font-family="Saira,Geist,system-ui,sans-serif" font-weight="600" font-size="92" letter-spacing="30" fill="#121314">ESTÚDIO</text>
+      ${vignette(i)}`, o.label || "Logotipo com iluminação halo em parede de concreto");
+  },
+
+  wayfinding(o){
+    const i = ++SID, fl = o.floor || "3";
+    const arrow = (x, y, dir) => dir === "r"
+      ? `<path d="M${x} ${y} h40 m-15 -15 l15 15 l-15 15" fill="none" stroke="#F5F5F5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`
+      : dir === "l" ? `<path d="M${x+40} ${y} h-40 m15 -15 l-15 15 l15 15" fill="none" stroke="#F5F5F5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`
+      : `<path d="M${x+20} ${y+20} v-40 m-15 15 l15 -15 l15 15" fill="none" stroke="#F5F5F5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    const plaque = (y, d, t, s) => `<rect x="840" y="${y}" width="390" height="100" fill="#0F1012"/><rect x="840" y="${y}" width="4" height="100" fill="#00F02B"/>${arrow(870, y + 50, d)}<text x="935" y="${y + 50}" font-family="Saira,Geist,system-ui,sans-serif" font-size="31" font-weight="500" fill="#EDEDED">${t}</text><text x="935" y="${y + 78}" font-family="Geist Mono,ui-monospace,monospace" font-size="15" letter-spacing="3" fill="#8E9398">${s}</text>`;
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="ww${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b3e42"/><stop offset=".5" stop-color="#202225"/><stop offset="1" stop-color="#141517"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#ww${i})"/>
+      <rect x="0" y="0" width="1600" height="14" fill="#F4F7FA" filter="url(#g${i})"/>
+      <text x="436" y="262" font-family="Geist Mono,ui-monospace,monospace" font-size="22" letter-spacing="6" fill="#9a9fa4">PAVIMENTO</text>
+      <text x="410" y="800" font-family="Saira,Geist,system-ui,sans-serif" font-weight="500" font-size="600" letter-spacing="-30" fill="#ECECEC">${fl}</text>
+      ${plaque(340, "l", "Auditório", "SALA A · SALA B")}
+      ${plaque(466, "r", "Salas de reunião", `${fl}01 A ${fl}12`)}
+      ${plaque(592, "u", "Elevadores", "ESCADAS · SAÍDA")}
+      <rect x="0" y="930" width="1600" height="70" fill="#0d0e0f"/>
+      ${vignette(i)}`, o.label || "Sinalização de pavimento com número e placas direcionais");
+  },
+
+  pendant(o){
+    const i = ++SID, lc = "#FFF2DC";
+    let chairs = ""; for (const x of [430, 620, 810, 1000, 1180]) chairs += `<rect x="${x-56}" y="566" width="112" height="120" rx="20" fill="#151617"/>`;
+    let panels = ""; for (let x = 200; x < 1600; x += 200) panels += `<line x1="${x}" y1="120" x2="${x}" y2="700" stroke="#232425" stroke-width="2"/>`;
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="bw${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1b1c"/><stop offset="1" stop-color="#2b2a27"/></linearGradient>
+      <linearGradient id="cn${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${lc}" stop-opacity=".17"/><stop offset="1" stop-color="${lc}" stop-opacity="0"/></linearGradient>
+      <radialGradient id="pl${i}"><stop offset="0" stop-color="${lc}" stop-opacity=".5"/><stop offset="1" stop-color="${lc}" stop-opacity="0"/></radialGradient>
+      <linearGradient id="tb${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2d21"/><stop offset="1" stop-color="#1f160f"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="#090a0b"/>
+      <rect y="0" width="1600" height="700" fill="url(#bw${i})"/>
+      ${panels}
+      <rect width="1600" height="120" fill="#0d0e0f"/>
+      <ellipse cx="800" cy="360" rx="560" ry="150" fill="${lc}" opacity=".1" filter="url(#G${i})"/>
+      <g stroke="#55585b" stroke-width="2"><line x1="540" y1="120" x2="540" y2="300"/><line x1="1060" y1="120" x2="1060" y2="300"/><line x1="460" y1="120" x2="460" y2="350"/><line x1="1140" y1="120" x2="1140" y2="350"/></g>
+      <polygon points="420,352 1180,352 1420,700 180,700" fill="url(#cn${i})"/>
+      <polygon points="530,300 1070,300 1170,350 430,350" fill="none" stroke="${lc}" stroke-width="18" opacity=".45" filter="url(#G${i})"/>
+      <polygon points="530,300 1070,300 1170,350 430,350" fill="none" stroke="${lc}" stroke-width="8" filter="url(#g${i})"/>
+      ${chairs}
+      <polygon points="330,640 1270,640 1430,760 170,760" fill="url(#tb${i})"/>
+      <ellipse cx="800" cy="695" rx="540" ry="56" fill="url(#pl${i})"/>
+      <rect x="170" y="760" width="1260" height="16" fill="#120d09"/>
+      <rect x="0" y="776" width="1600" height="224" fill="#080909"/>
+      <rect x="260" y="776" width="16" height="224" fill="#0f0f10"/><rect x="1324" y="776" width="16" height="224" fill="#0f0f10"/>
+      ${vignette(i)}`, o.label || "Sala de reunião com luminária pendente retangular de LED");
+  },
+
+  letters(o){
+    const i = ++SID, w = o.text || "NORTE";
+    let joints = ""; for (let y = 160; y < 760; y += 160) joints += `<line x1="0" y1="${y}" x2="1600" y2="${y}" stroke="#2a2b2c" stroke-width="2"/>`;
+    for (let y = 0; y < 760; y += 160) for (let x = ((y / 160) % 2) * 200; x < 1600; x += 400) joints += `<line x1="${x}" y1="${y}" x2="${x}" y2="${y + 160}" stroke="#2a2b2c" stroke-width="2"/>`;
+    let scallops = ""; for (const x of [330, 800, 1270]) scallops += `<ellipse cx="${x}" cy="60" rx="190" ry="420" fill="url(#sc${i})"/>`;
+    const t = (fill, extra) => `<text x="800" y="480" text-anchor="middle" font-family="Saira,Geist,system-ui,sans-serif" font-weight="600" font-size="168" letter-spacing="42" fill="${fill}" ${extra}>${w}</text>`;
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="sw${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3b3b"/><stop offset="1" stop-color="#1f2020"/></linearGradient>
+      <radialGradient id="sc${i}" cx="50%" cy="0%" r="100%"><stop offset="0" stop-color="#FFF4E2" stop-opacity=".26"/><stop offset="1" stop-color="#FFF4E2" stop-opacity="0"/></radialGradient>
+      <linearGradient id="mt${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1efea"/><stop offset=".55" stop-color="#b9b7b1"/><stop offset="1" stop-color="#8c8a85"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#sw${i})"/>
+      ${joints}
+      <g style="mix-blend-mode:screen">${scallops}</g>
+      ${t("#000", `opacity=".55" transform="translate(12 30)" filter="url(#B${i})"`)}
+      ${t(`url(#mt${i})`, "")}
+      <rect x="560" y="530" width="480" height="3" fill="#c9c7c1"/>
+      <text x="800" y="586" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="22" letter-spacing="9" fill="#a3a4a4">ARQUITETURA · INTERIORES</text>
+      <rect x="0" y="760" width="1600" height="240" fill="#101010"/>
+      <rect x="0" y="760" width="1600" height="16" fill="#1f1f1f"/>
+      <rect x="0" y="776" width="1600" height="4" fill="#FFF2DC" opacity=".8" filter="url(#g${i})"/>
+      <rect x="0" y="780" width="1600" height="90" fill="#FFF2DC" opacity=".05"/>
+      ${vignette(i)}`, o.label || "Parede de recepção com letras em relevo e iluminação de destaque");
+  },
+
+  totem(o){
+    const i = ++SID;
+    let city = ""; const r = rnd(41);
+    for (let x = 0; x < 1600; x += 70 + r() * 60) { const h = 60 + r() * 160, w = 50 + r() * 70; city += `<rect x="${x}" y="${660 - h}" width="${w}" height="${h}" fill="#0a0e14"/>`; for (let k = 0; k < 4; k++) if (r() > .55) city += `<rect x="${x + 8 + r() * (w - 20)}" y="${660 - h + 12 + r() * (h - 30)}" width="6" height="8" fill="#e8d9b0" opacity=".55"/>`; }
+    let lines = ""; for (let k = -6; k <= 6; k++) lines += `<line x1="${800 + k * 60}" y1="700" x2="${800 + k * 300}" y2="1000" stroke="#d8dde2" stroke-width="2" opacity=".07"/>`;
+    let tenants = ""; ["01", "02", "03"].forEach((n, k) => { const y = 520 + k * 62; tenants += `<rect x="716" y="${y}" width="168" height="46" fill="#e9ece7" opacity=".9"/><text x="732" y="${y + 30}" font-family="Geist Mono,ui-monospace,monospace" font-size="18" letter-spacing="3" fill="#16191c">LOJA ${n}</text>`; });
+    return wrapSvg(`<defs>${fx(i)}
+      <linearGradient id="sk${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1422"/><stop offset=".65" stop-color="#1b2433"/><stop offset="1" stop-color="#121722"/></linearGradient>
+      <linearGradient id="gr${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1114"/><stop offset="1" stop-color="#050607"/></linearGradient>
+      <linearGradient id="pn${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfcf8"/><stop offset="1" stop-color="#d9dfd8"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#sk${i})"/>
+      ${city}
+      <rect y="660" width="1600" height="340" fill="url(#gr${i})"/>
+      ${lines}
+      <ellipse cx="800" cy="760" rx="300" ry="40" fill="#f4f7f2" opacity=".14" filter="url(#G${i})"/>
+      <rect x="716" y="168" width="168" height="310" fill="#f4f7f2" opacity=".55" filter="url(#G${i})"/>
+      <rect x="696" y="140" width="208" height="620" fill="#14171a"/>
+      <rect x="696" y="140" width="4" height="620" fill="#2a2f34"/>
+      <rect x="716" y="168" width="168" height="310" fill="url(#pn${i})"/>
+      <circle cx="800" cy="262" r="46" fill="none" stroke="#0e1012" stroke-width="10"/>
+      <path d="M786 236 V266 C786 276 792 281 800 281 C808 281 814 276 814 266 V236" fill="none" stroke="#00B82A" stroke-width="7" stroke-linecap="round"/>
+      <rect x="742" y="342" width="116" height="10" fill="#1b1e21"/><rect x="756" y="366" width="88" height="8" fill="#5b6066"/>
+      <rect x="742" y="412" width="116" height="2" fill="#c3c8c2"/>
+      ${tenants}
+      <rect x="680" y="760" width="240" height="14" fill="#1c2024"/>
+      ${vignette(i)}`, o.label || "Totem de identificação iluminado ao anoitecer");
+  },
+
+  blueprint(o){
+    const i = ++SID, m = "Geist Mono,ui-monospace,monospace";
+    const dim = (x1, y1, x2, y2, label, vert) => vert
+      ? `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#7d868c" stroke-width="1.5"/><line x1="${x1-10}" y1="${y1}" x2="${x1+10}" y2="${y1}" stroke="#7d868c" stroke-width="1.5"/><line x1="${x2-10}" y1="${y2}" x2="${x2+10}" y2="${y2}" stroke="#7d868c" stroke-width="1.5"/><text x="${x1-18}" y="${(y1+y2)/2}" transform="rotate(-90 ${x1-18} ${(y1+y2)/2})" text-anchor="middle" font-family="${m}" font-size="20" fill="#A1A1A1">${label}</text>`
+      : `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#7d868c" stroke-width="1.5"/><line x1="${x1}" y1="${y1-10}" x2="${x1}" y2="${y1+10}" stroke="#7d868c" stroke-width="1.5"/><line x1="${x2}" y1="${y2-10}" x2="${x2}" y2="${y2+10}" stroke="#7d868c" stroke-width="1.5"/><text x="${(x1+x2)/2}" y="${y1-14}" text-anchor="middle" font-family="${m}" font-size="20" fill="#A1A1A1">${label}</text>`;
+    let letters = ""; for (let k = 0; k < 6; k++) letters += `<rect x="${400 + k*136}" y="380" width="104" height="150" fill="none" stroke="#D9DDE0" stroke-width="2.5"/><rect x="${410 + k*136}" y="390" width="84" height="130" fill="none" stroke="#5b6369" stroke-width="1.2" stroke-dasharray="6 6"/>`;
+    const call = (x, y, tx, ty, t) => `<circle cx="${x}" cy="${y}" r="6" fill="#00F02B" filter="url(#g${i})"/><polyline points="${x},${y} ${tx},${ty} ${tx+170},${ty}" fill="none" stroke="#00F02B" stroke-width="1.6"/><text x="${tx+6}" y="${ty-10}" font-family="${m}" font-size="19" letter-spacing="1" fill="#00F02B">${t}</text>`;
+    return wrapSvg(`<defs>${fx(i)}
+      <pattern id="gm${i}" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#151a1f" stroke-width="1"/></pattern>
+      <pattern id="gM${i}" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#gm${i})"/><path d="M100 0H0V100" fill="none" stroke="#1d242a" stroke-width="1.2"/></pattern>
+      </defs>
+      <rect width="1600" height="1000" fill="#0d1013"/>
+      <rect width="1600" height="1000" fill="url(#gM${i})"/>
+      <rect x="340" y="330" width="920" height="250" fill="none" stroke="#F5F5F5" stroke-width="3"/>
+      <rect x="352" y="342" width="896" height="226" fill="none" stroke="#5b6369" stroke-width="1.2"/>
+      ${letters}
+      <line x1="300" y1="610" x2="1300" y2="610" stroke="#5b6369" stroke-width="1.5" stroke-dasharray="14 6 3 6"/>
+      ${dim(340, 270, 1260, 270, "4.800")}
+      ${dim(290, 330, 290, 580, "1.200", true)}
+      ${dim(400, 650, 504, 650, "540")}
+      ${call(1180, 455, 1290, 400, "LED 4000K")}
+      ${call(560, 560, 470, 720, "ACM 3 mm")}
+      ${call(940, 345, 1010, 200, "FIXAÇÃO OCULTA")}
+      <rect x="1080" y="800" width="440" height="150" fill="#0d1013" stroke="#4a5257" stroke-width="1.5"/>
+      <line x1="1080" y1="850" x2="1520" y2="850" stroke="#4a5257"/><line x1="1080" y1="900" x2="1520" y2="900" stroke="#4a5257"/>
+      <text x="1100" y="834" font-family="${m}" font-size="18" letter-spacing="3" fill="#D9DDE0">FACHADA · ELEVAÇÃO</text>
+      <text x="1100" y="884" font-family="${m}" font-size="16" letter-spacing="3" fill="#8E9398">ESCALA 1:20 · MEDIDAS EM MM</text>
+      <text x="1100" y="934" font-family="${m}" font-size="16" letter-spacing="3" fill="#8E9398">FOLHA 01 / 03</text>
+      ${vignette(i)}`, o.label || "Desenho técnico de fachada com cotas e especificações");
+  },
+
+  cnc(o){
+    const i = ++SID, r = rnd(o.seed || 5);
+    let grain = ""; for (let y = 200; y < 820; y += 14) grain += `<path d="M260 ${y} C 600 ${y + (r()-.5)*14}, 1000 ${y + (r()-.5)*14}, 1350 ${y}" fill="none" stroke="#7a5a35" stroke-width="1" opacity="${(0.15 + r()*0.25).toFixed(2)}"/>`;
+    let slots = ""; for (let x = 60; x < 1600; x += 120) slots += `<rect x="${x}" y="0" width="16" height="1000" fill="#0a0b0c"/>`;
+    let dust = ""; for (let k = 0; k < 40; k++) { const a = r() * Math.PI * 2, d = 20 + r() * 120; dust += `<circle cx="${1040 + Math.cos(a)*d}" cy="${366 + Math.sin(a)*d*0.7}" r="${(1 + r()*3).toFixed(1)}" fill="#e9d2a8" opacity="${(0.3 + r()*0.6).toFixed(2)}"/>`; }
+    return wrapSvg(`<defs>${fx(i)}
+      <radialGradient id="sp${i}" cx="60%" cy="35%" r="70%"><stop offset="0" stop-color="#26292c"/><stop offset="1" stop-color="#0c0d0e"/></radialGradient>
+      <linearGradient id="md${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c39a68"/><stop offset="1" stop-color="#9c7445"/></linearGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#sp${i})"/>
+      <g transform="${o.zoom ? `translate(800 500) scale(${o.zoom}) translate(${-(o.zx || 1000)} -520)` : ""}">
+      <g opacity=".7">${slots}</g>
+      <g transform="rotate(-4 800 500)">
+        <rect x="250" y="190" width="1100" height="640" fill="#000" opacity=".45" transform="translate(16 22)" filter="url(#B${i})"/>
+        <rect x="250" y="190" width="1100" height="640" fill="url(#md${i})"/>
+        ${grain}
+        <path d="M440 300 V560 C440 660 500 700 580 700 C660 700 720 660 720 560 V300" fill="none" stroke="#2a1d10" stroke-width="30" stroke-linecap="round"/>
+        <path d="M440 300 V560 C440 660 500 700 580 700 C660 700 720 660 720 560 V300" fill="none" stroke="#000" stroke-width="30" stroke-linecap="round" opacity=".35" transform="translate(3 4)"/>
+        <rect x="880" y="420" width="280" height="280" rx="44" fill="none" stroke="#2a1d10" stroke-width="24"/>
+        <circle cx="940" cy="480" r="11" fill="#2a1d10"/><circle cx="1100" cy="480" r="11" fill="#2a1d10"/><circle cx="940" cy="640" r="11" fill="#2a1d10"/><circle cx="1100" cy="640" r="11" fill="#2a1d10"/>
+        <path d="M400 290 V560 C400 690 480 740 580 740 C680 740 760 690 760 560 V290" fill="none" stroke="#00F02B" stroke-width="3" stroke-dasharray="14 10" filter="url(#g${i})"/>
+        <rect x="852" y="392" width="336" height="336" rx="64" fill="none" stroke="#00F02B" stroke-width="3" stroke-dasharray="14 10" opacity=".85"/>
+      </g>
+      <circle cx="1040" cy="366" r="90" fill="#FFFFFF" opacity=".14" filter="url(#G${i})"/>
+      <circle cx="1040" cy="366" r="16" fill="#d9fbe0" filter="url(#g${i})"/>
+      ${dust}
+      </g>
+      ${vignette(i)}`, o.label || "Peça em MDF sendo usinada com trajetória de corte");
+  },
+
+  neon(o){
+    const i = ++SID;
+    const d = "M180 640 C 330 330, 560 300, 640 520 S 860 770, 960 500 V 330 C 960 250, 1020 210, 1080 210 C 1140 210, 1200 250, 1200 330 V 560 C 1200 660, 1300 700, 1440 600";
+    let dots = ""; for (const [x, y] of [[320,445],[640,520],[960,420],[1200,450],[1380,640]]) dots += `<circle cx="${x}" cy="${y}" r="5" fill="#2e3236"/>`;
+    return wrapSvg(`<defs>${fx(i)}${noise(i, 9, .12)}
+      <radialGradient id="ws${i}" cx="55%" cy="45%" r="60%"><stop offset="0" stop-color="#14261a"/><stop offset="1" stop-color="#0b0d0f"/></radialGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#ws${i})"/>
+      <rect width="1600" height="1000" filter="url(#n${i})"/>
+      ${dots}
+      <path d="${d}" fill="none" stroke="#00F02B" stroke-width="46" opacity=".33" filter="url(#G${i})" stroke-linecap="round"/>
+      <path d="${d}" fill="none" stroke="#00F02B" stroke-width="16" opacity=".8" filter="url(#B${i})" stroke-linecap="round"/>
+      <path d="${d}" fill="none" stroke="#5CFF77" stroke-width="7" stroke-linecap="round"/>
+      <path d="${d}" fill="none" stroke="#E6FFEA" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="0" y="900" width="1600" height="100" fill="#070809"/>
+      <ellipse cx="820" cy="905" rx="620" ry="22" fill="#00F02B" opacity=".18" filter="url(#G${i})"/>
+      ${vignette(i)}`, o.label || "Painel em linha contínua de LED verde sobre parede de concreto");
+  }
+};
+function scene(name, opts){ return (SCENES[name] || SCENES.neon)(opts || {}); }
+const cover = item => item.foto || (item.fotos && item.fotos[0]) || "";
+const isVid = src => /\.(mp4|webm|mov)$/i.test(src);
+function mediaSrc(src, alt, full){
+  return isVid(src)
+    ? `<video src="${src}" muted playsinline preload="metadata" aria-label="${alt}" ${full ? "controls autoplay" : "autoplay loop"}></video>`
+    : `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+}
+function media(item, alt){
+  const src = cover(item);
+  return src ? mediaSrc(src, alt || item.nome) : scene(item.scene, Object.assign({ label: alt || item.nome }, item.opts));
+}
+const tag = item => cover(item) ? "" : `<span class="tag">Imagem ilustrativa</span>`;
+
+/* ---------------- Render ---------------- */
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const AR = `<svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>`;
+const mqMobile = matchMedia("(max-width: 900px)");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const waUrl = CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(CONFIG.mensagemWhatsapp)}` : "";
+
+$("#svcPrev").innerHTML = SERVICOS.map((s, k) => `<figure class="ph${k === 0 ? " on" : ""}">${media(s)}${tag(s)}</figure>`).join("") +
+  `<div class="cap"><span class="mono" id="svcCap">${SERVICOS[0].nome}</span></div>`;
+$("#svcList").innerHTML = SERVICOS.map((s, k) => `<li class="svc${k === 0 ? " on" : ""}" data-k="${k}">
+  <h3><button class="svc-row" type="button" id="svcRow${k}" aria-controls="svcBody${k}">${s.nome}${AR}</button></h3>
+  <div class="svc-body" id="svcBody${k}" role="region" aria-labelledby="svcRow${k}"><div>
+    <p>${s.curto}</p>
+    <figure class="ph">${media(s)}${tag(s)}</figure>
+    <button class="btn btn-ghost btn-sm svc-more" type="button" aria-haspopup="dialog">Ver detalhes${AR}</button>
+  </div></div></li>`).join("");
+$("#ftrSvc").innerHTML = SERVICOS.map((s, k) => `<li><a href="#servicos" data-svc="${k}">${s.nome}</a></li>`).join("");
+
+const anyIllustrative = PROJETOS.some(p => !cover(p));
+const projNote = anyIllustrative ? "Exemplos de aplicação com imagens ilustrativas. Esta galeria recebe as fotos dos projetos realizados pela POWER LED." : "Uma seleção de trabalhos em fachadas, interiores corporativos e comunicação visual.";
+$("#projTrack").innerHTML = `<div class="hs-intro">
+    <div><p class="label">Projetos</p><h2 class="h2" id="projTitle">Projetos que transformam ambientes.</h2></div>
+    <div style="display:grid;gap:18px"><p class="lead">${projNote}</p>
+    <p class="mono hs-hint"><span class="hs-hint-txt">Role para ver</span><svg viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 6h25M21 1l5 5-5 5"/></svg></p></div>
+  </div>` + PROJETOS.map((p, k) => `<article class="pj ${p.formato || "l"}" data-k="${k}">
+  <figure class="ph">${media(p)}${tag(p)}</figure>
+  <div class="meta"><h3>${p.nome}</h3>${AR}<span class="mono">${p.cat}</span></div>
+  <button class="hit" type="button" aria-haspopup="dialog" aria-label="Ver projeto: ${p.nome}"></button></article>`).join("") +
+  `<div class="hs-end"><h3>Tem um projeto em mente?</h3><p>Conte o que você precisa e receba uma proposta sob medida.</p><a class="btn btn-led btn-sm" href="#contato" data-wa>Solicitar orçamento${AR}</a></div>`;
+
+$("#aboutMedia").innerHTML = mediaSrc("midia/video1.mp4", "Neon sendo montado na oficina da POWER LED");
+$("#ctaMedia").innerHTML = mediaSrc("midia/neon-stay.jpg", "Neon âmbar instalado pela POWER LED");
+
+/* Contato */
+const fmtPhone = n => { const d = n.replace(/\D/g, "").replace(/^55/, ""); return d.length >= 10 ? `(${d.slice(0,2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : n; };
+const ig = CONFIG.instagram.replace(/^@/, "");
+const contactRows = [
+  ["WhatsApp", CONFIG.whatsapp ? fmtPhone(CONFIG.whatsapp) : "", waUrl],
+  ["Instagram", ig ? "@" + ig : "", ig ? `https://instagram.com/${ig}` : ""],
+  ["E-mail", CONFIG.email, CONFIG.email ? `mailto:${CONFIG.email}` : ""]
+];
+const val = (v, href) => href ? `<a href="${href}" target="_blank" rel="noopener">${v}</a>` : v;
+$("#contacts").innerHTML = contactRows.map(([k, v, href]) => `<div><dt class="mono">${k}</dt><dd class="${v ? "" : "unset"}">${v ? val(v, href) : "A definir"}</dd></div>`).join("");
+const ftrSet = contactRows.concat([["Telefone", CONFIG.telefone, ""], ["Endereço", CONFIG.endereco, ""]]).filter(r => r[1]);
+$("#ftrContact").innerHTML = ftrSet.length ? ftrSet.map(([k, v, href]) => `<li>${val(v, href)}</li>`).join("") : `<li class="unset">Contatos a definir</li>`;
+$("#yr").textContent = new Date().getFullYear();
+if (CONFIG.creditoUrl) $("#credit").innerHTML = `Desenvolvido por <a href="${CONFIG.creditoUrl}" target="_blank" rel="noopener">Nevoy</a>`;
+// todos os botões de orçamento abrem o WhatsApp direto; sem número configurado, continuam levando à seção de contato
+if (waUrl) $$("[data-wa]").forEach(a => { a.href = waUrl; a.target = "_blank"; a.rel = "noopener"; });
+const ctaWa = $("#ctaWa");
+if (!waUrl) {
+  ctaWa.setAttribute("aria-disabled", "true"); ctaWa.setAttribute("aria-describedby", "ctaNote"); $("#ctaNote").hidden = false;
+  ctaWa.addEventListener("click", e => e.preventDefault());
+}
+
+/* ---------------- Antes e depois ---------------- */
+const ba = $("#ba"), baH = $("#baHandle");
+let baX = 50, baTouched = false, baK = -1;
+function baSet(x){
+  baX = Math.max(0, Math.min(100, x));
+  ba.style.setProperty("--x", baX + "%");
+  baH.setAttribute("aria-valuenow", Math.round(baX));
+  baH.setAttribute("aria-valuetext", `${Math.round(baX)}% mostrando o antes`);
+}
+/* As cenas têm muitos filtros de desfoque; redesenhar isso a cada movimento do arraste trava o celular.
+   Por isso cada cena vira uma imagem (SVG em <img>, com as fontes embutidas) e o arraste só move bitmaps. */
+let baFontCss = null;
+async function baFonts(){
+  if (baFontCss !== null) return baFontCss;
+  try {
+    const css = await (await fetch($('link[href*="fonts.googleapis.com/css2"]').href)).text();
+    const faces = await Promise.all(css.split("/*").filter(b => b.startsWith(" latin */")).map(async b => {
+      const url = b.match(/url\(([^)]+)\)/)[1], buf = new Uint8Array(await (await fetch(url)).arrayBuffer());
+      let bin = ""; for (let k = 0; k < buf.length; k += 8192) bin += String.fromCharCode.apply(null, buf.subarray(k, k + 8192));
+      return "@font-face{" + b.split("@font-face {")[1].replace(url, "data:font/woff2;base64," + btoa(bin));
+    }));
+    baFontCss = faces.join("");
+  } catch (e) { baFontCss = ""; }
+  return baFontCss;
+}
+async function baRaster(layer){
+  const svg = layer.querySelector("svg"); if (!svg || !window.Blob) return;
+  const fonts = await baFonts();
+  if (!layer.contains(svg)) return;
+  const src = svg.outerHTML.replace(/^<svg /, '<svg xmlns="http://www.w3.org/2000/svg" ').replace(/^(<svg[^>]*>)/, `$1<style>${fonts}</style>`);
+  const img = new Image(); img.alt = svg.getAttribute("aria-label") || ""; img.draggable = false;
+  img.src = URL.createObjectURL(new Blob([src], { type: "image/svg+xml" }));
+  try { await img.decode(); } catch (e) { return; }
+  if (layer.contains(svg)) svg.replaceWith(img);
+}
+const baImg = (src, alt) => `<img src="${src}" alt="${alt}" draggable="false">`;
+function baRender(k){
+  if (k === baK) return;
+  const p = ANTES_DEPOIS[k], first = baK < 0; baK = k;
+  const paint = () => {
+    $("#baBefore").innerHTML = p.fotoAntes ? baImg(p.fotoAntes, `${p.nome}, antes`) : scene(p.antes.scene, p.antes.opts);
+    $("#baAfter").innerHTML = p.fotoDepois ? baImg(p.fotoDepois, `${p.nome}, depois`) : scene(p.depois.scene, p.depois.opts);
+    baRaster($("#baBefore")); baRaster($("#baAfter"));
+    $("#baDesc").textContent = p.desc;
+    $("#baTag").hidden = !!(p.fotoAntes && p.fotoDepois);
+    ba.classList.remove("swap");
+  };
+  $$("#baTabs button").forEach((b, j) => { b.setAttribute("aria-selected", j === k); b.tabIndex = j === k ? 0 : -1; });
+  if (first || reduce) paint(); else { ba.classList.add("swap"); setTimeout(paint, 240); }
+}
+$("#baTabs").innerHTML = ANTES_DEPOIS.map(p => `<button type="button" role="tab" aria-controls="ba">${p.nome}</button>`).join("");
+$("#baTabs").hidden = ANTES_DEPOIS.length < 2; // com um ambiente só, as abas não fazem sentido
+$$("#baTabs button").forEach((b, k) => {
+  b.addEventListener("click", () => baRender(k));
+  b.addEventListener("keydown", e => {
+    const keys = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+    if (e.key in keys) { const n = ANTES_DEPOIS.length, j = (k + keys[e.key] + n) % n; baRender(j); $$("#baTabs button")[j].focus(); e.preventDefault(); }
+  });
+});
+baRender(0); baSet(50);
+(function(){
+  let id = null, sx = 0, sy = 0, active = false;
+  const at = e => { const r = ba.getBoundingClientRect(); baSet((e.clientX - r.left) / r.width * 100); };
+  ba.addEventListener("pointerdown", e => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    id = e.pointerId; sx = e.clientX; sy = e.clientY; baTouched = true;
+    // no toque, pegar a própria linha já arrasta; no resto da imagem espera o gesto ser horizontal
+    active = e.pointerType !== "touch" || !!e.target.closest(".ba-handle");
+    if (active) { ba.setPointerCapture(id); ba.classList.add("drag"); at(e); e.preventDefault(); }
+  });
+  ba.addEventListener("pointermove", e => {
+    if (e.pointerId !== id) return;
+    if (!active) {
+      const dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy);
+      if (dx > 6 && dx > dy) { active = true; try { ba.setPointerCapture(id); } catch (err) {} ba.classList.add("drag"); } else return;
+    }
+    at(e);
+  });
+  const end = e => { if (e.pointerId !== id) return; if (!active && e.type === "pointerup") at(e); id = null; active = false; ba.classList.remove("drag"); };
+  ba.addEventListener("pointerup", end); ba.addEventListener("pointercancel", end);
+  baH.addEventListener("keydown", e => {
+    const step = e.shiftKey ? 10 : 4, map = { ArrowLeft: -step, ArrowDown: -step, ArrowRight: step, ArrowUp: step };
+    if (e.key in map) { baSet(baX + map[e.key]); baTouched = true; e.preventDefault(); }
+    else if (e.key === "Home") { baSet(0); e.preventDefault(); } else if (e.key === "End") { baSet(100); e.preventDefault(); }
+  });
+})();
+let baHinted = false;
+function baHint(){
+  if (baHinted || baTouched || reduce) return; baHinted = true;
+  const keys = [[0, 50], [.35, 74], [.7, 28], [1, 50]], dur = 2200; let t0 = null;
+  const ease = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
+  (function f(now){
+    if (baTouched) return; t0 = t0 || now; const t = Math.min(1, (now - t0) / dur);
+    let k = 1; while (keys[k][0] < t) k++;
+    const [ta, va] = keys[k-1], [tb, vb] = keys[k], u = ease((t - ta) / (tb - ta || 1));
+    baSet(va + (vb - va) * u); if (t < 1) requestAnimationFrame(f);
+  })(performance.now());
+}
+
+
+/* ---------------- Serviços ---------------- */
+let svcActive = 0;
+function setSvc(k, opts){
+  const toggle = opts && opts.toggle;
+  if (toggle && k === svcActive && $$(".svc")[k].classList.contains("on")) { $$(".svc")[k].classList.remove("on"); syncSvcAria(); return; }
+  const figs = $$("#svcPrev .ph");
+  if (k !== svcActive) {
+    figs.forEach(f => f.classList.remove("was"));
+    figs[svcActive].classList.remove("on"); figs[svcActive].classList.add("was");
+    figs[k].classList.add("on");
+    $("#svcCap").textContent = SERVICOS[k].nome;
+  }
+  $$(".svc").forEach(li => li.classList.toggle("on", +li.dataset.k === k));
+  svcActive = k; syncSvcAria(); svcMark();
+}
+function svcMark(){
+  const li = $$(".svc")[svcActive], list = $("#svcList");
+  $("#svcDesc").textContent = SERVICOS[svcActive].curto;
+  if (mqMobile.matches) return;
+  list.style.setProperty("--iy", li.offsetTop + "px");
+  list.style.setProperty("--ih", li.offsetHeight + "px");
+}
+function syncSvcAria(){
+  $$(".svc").forEach(li => {
+    const b = li.querySelector(".svc-row");
+    if (mqMobile.matches) { b.setAttribute("aria-expanded", li.classList.contains("on")); b.removeAttribute("aria-haspopup"); }
+    else { b.removeAttribute("aria-expanded"); b.setAttribute("aria-haspopup", "dialog"); }
+  });
+}
+$$(".svc").forEach(li => {
+  const k = +li.dataset.k, row = li.querySelector(".svc-row");
+  li.addEventListener("mouseenter", () => { if (!mqMobile.matches) setSvc(k); });
+  row.addEventListener("focus", () => { if (!mqMobile.matches) setSvc(k); });
+  row.addEventListener("click", () => mqMobile.matches ? setSvc(k, { toggle: true }) : openService(k));
+  li.querySelector(".svc-more").addEventListener("click", () => openService(k));
+});
+mqMobile.addEventListener ? mqMobile.addEventListener("change", syncSvcAria) : mqMobile.addListener(syncSvcAria);
+syncSvcAria(); svcMark();
+addEventListener("resize", svcMark);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(svcMark);
+$$("[data-svc]").forEach(a => a.addEventListener("click", () => setTimeout(() => setSvc(+a.dataset.svc), 350)));
+
+/* ---------------- Diálogos ---------------- */
+const dlg = $("#dlg");
+let lastFocus = null;
+const X = `<button class="x" type="button" aria-label="Fechar"><svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg></button>`;
+/* Animação dos modais: a janela sobe e cresce até o lugar, a foto assenta com um zoom leve
+   e os textos entram em sequência. Ao trocar de projeto o conteúdo desliza para o lado; ao fechar, o caminho inverso. */
+const EASE_OUT = "cubic-bezier(.16,1,.3,1)";
+let dlgClosing = null;
+function dlgEnter(){
+  if (reduce || !dlg.animate) return;
+  const dy = mqMobile.matches ? 48 : 22;
+  dlg.animate([{ opacity: 0, transform: `translateY(${dy}px) scale(.97)` }, { opacity: 1, transform: "none" }], { duration: 560, easing: EASE_OUT });
+  dlgInner(0);
+}
+function dlgInner(dir){
+  const media = dlg.querySelector(".dlg .ph>*"), txt = dlg.querySelectorAll(".dlg-txt>*");
+  if (media) media.animate([{ transform: "scale(1.06)", opacity: dir ? 0 : .4 }, { transform: "scale(1)", opacity: 1 }], { duration: 900, easing: EASE_OUT });
+  txt.forEach((el, i) => el.animate([{ opacity: 0, transform: dir ? `translateX(${dir * 18}px)` : "translateY(14px)" }, { opacity: 1, transform: "none" }],
+    { duration: 520, delay: (dir ? 0 : 140) + i * 45, easing: EASE_OUT, fill: "backwards" }));
+}
+function showDlg(html, dir){
+  if (dlgClosing) { dlgClosing.cancel(); dlgClosing = null; dlg.classList.remove("closing"); }
+  const opening = !dlg.open;
+  if (opening) lastFocus = document.activeElement;
+  dlg.innerHTML = html;
+  if (opening) { try { dlg.showModal(); } catch (e) { dlg.setAttribute("open", ""); } if (lenis) lenis.stop(); dlgEnter(); }
+  else if (!reduce && dlg.animate) dlgInner(dir || 1);
+  // foco no título (e não no X) para nenhum botão abrir com contorno; o Tab segue normal a partir dele
+  const title = dlg.querySelector("#dlgTitle"); title.tabIndex = -1; title.focus({ preventScroll: true });
+}
+function closeDlg(){
+  if (!dlg.open || dlgClosing) return;
+  const done = () => { dlgClosing = null; dlg.classList.remove("closing"); dlg.close ? dlg.close() : dlg.removeAttribute("open"); };
+  if (lenis) lenis.start();   // libera a rolagem já no início, para links como "Solicitar orçamento" rolarem a página
+  if (reduce || !dlg.animate) return done();
+  dlg.classList.add("closing");
+  const dy = mqMobile.matches ? 36 : 14;
+  dlgClosing = dlg.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: `translateY(${dy}px) scale(.98)` }], { duration: 280, easing: "cubic-bezier(.4,0,.8,.2)", fill: "forwards" });
+  dlgClosing.onfinish = () => { const a = dlgClosing; done(); a && a.cancel(); };
+}
+// Esc também fecha com animação (o keydown é interceptado antes porque o Chrome nem sempre deixa cancelar o "cancel")
+addEventListener("keydown", e => { if (e.key === "Escape" && dlg.open) { e.preventDefault(); closeDlg(); } }, true);
+dlg.addEventListener("cancel", e => { e.preventDefault(); closeDlg(); });
+dlg.addEventListener("close", () => { dlg.querySelectorAll("video").forEach(v => v.pause()); if (lenis) lenis.start(); if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true }); });
+dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest(".x") || e.target.closest("[data-close]")) closeDlg(); });
+function quoteBtn(){
+  return waUrl ? `<a class="btn btn-led btn-sm" href="${waUrl}" target="_blank" rel="noopener">Solicitar orçamento${AR}</a>` : `<a class="btn btn-led btn-sm" href="#contato" data-close>Solicitar orçamento${AR}</a>`;
+}
+function openService(k){
+  const s = SERVICOS[k];
+  showDlg(`<div class="dlg"><figure class="ph">${media(s)}${tag(s)}</figure><div class="dlg-txt">
+    <div class="dlg-top"><span class="mono">Serviço</span>${X}</div>
+    <h3 id="dlgTitle">${s.nome}</h3><p>${s.texto}</p>
+    <ul>${s.itens.map(t => `<li>${t}</li>`).join("")}</ul>
+    <div class="dlg-nav">${quoteBtn()}</div>
+  </div></div>`);
+}
+function openProject(k, dir){
+  const p = PROJETOS[k], n = PROJETOS.length;
+  showDlg(`<div class="dlg"><figure class="ph">${media(p)}${tag(p)}</figure><div class="dlg-txt">
+    <div class="dlg-top"><span class="mono">${cover(p) ? p.cat : "Exemplo de aplicação · " + p.cat}</span>${X}</div>
+    <h3 id="dlgTitle">${p.nome}</h3><p>${p.desc}</p>
+    ${p.fotos.length > 1 ? `<div class="dlg-media">${p.fotos.map((src, j) => `<button type="button" data-m="${j}" aria-pressed="${j === 0}">${isVid(src) ? "Vídeo" : "Foto"}</button>`).join("")}</div>` : ""}
+    <div class="dlg-nav"><button type="button" data-go="${(k - 1 + n) % n}">Anterior</button><button type="button" data-go="${(k + 1) % n}">Próximo</button></div>
+  </div></div>`, dir);
+  dlg.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => openProject(+b.dataset.go, b.textContent.trim() === "Anterior" ? -1 : 1)));
+  dlg.querySelectorAll("[data-m]").forEach(b => b.addEventListener("click", () => {
+    const fig = dlg.querySelector(".dlg .ph");
+    fig.innerHTML = mediaSrc(p.fotos[+b.dataset.m], p.nome, true);
+    if (!reduce && fig.animate) fig.firstElementChild.animate([{ opacity: 0, transform: "scale(1.03)" }, { opacity: 1, transform: "none" }], { duration: 450, easing: EASE_OUT });
+    dlg.querySelectorAll("[data-m]").forEach(o => o.setAttribute("aria-pressed", o === b));
+  }));
+}
+$$(".pj .hit").forEach(b => b.addEventListener("click", () => openProject(+b.parentElement.dataset.k)));
+document.addEventListener("keydown", e => {
+  if (!dlg.open) return;
+  const btns = dlg.querySelectorAll("[data-go]");
+  if (btns.length && (e.key === "ArrowRight" || e.key === "ArrowLeft")) btns[e.key === "ArrowRight" ? 1 : 0].click();
+});
+
+/* ---------------- Luz viva do U no hero ---------------- */
+(function(){
+  if (reduce || !document.body.animate) return;
+  const hero = $("#inicio"), u = $$(".lamp .l-u"), halo = $(".lamp .l-halo"), pool = $(".room .pool"), spill = $(".room .spill");
+  const greens = ["#00F02B", "#2BFF5E", "#00E352", "#62FF3C", "#00F07A", "#18FF34"];
+  const patterns = [
+    { d: 480, k: [1, .22, 1, 1], o: [0, .1, .22, 1] },
+    { d: 620, k: [1, .3, 1, .38, 1, 1], o: [0, .08, .17, .3, .4, 1] },
+    { d: 1100, k: [1, .6, .74, .5, .85, 1], o: [0, .18, .4, .6, .8, 1] },
+    { d: 900, k: [1, .15, .9, .2, 1, .65, 1], o: [0, .06, .14, .22, .3, .5, 1] }
+  ];
+  let ci = 0, live = false, visible = true, ft = null, ht = null;
+  const frames = (p, scale) => p.k.map((v, j) => ({ opacity: 1 - (1 - v) * scale, offset: p.o[j] }));
+  function flicker(){
+    if (!visible || document.hidden) return schedule();
+    const p = patterns[Math.floor(Math.random() * patterns.length)];
+    u.forEach(g => g.animate(frames(p, 1), { duration: p.d }));
+    halo.animate(frames(p, 1).map(f => ({ opacity: f.opacity * .85, offset: f.offset })), { duration: p.d });
+    pool.animate(frames(p, .8), { duration: p.d });
+    spill.animate(frames(p, .8), { duration: p.d });
+    schedule();
+  }
+  function schedule(){ clearTimeout(ft); ft = setTimeout(flicker, 3800 + Math.random() * 6200); }
+  function shift(){
+    if (visible && !document.hidden) { ci = (ci + 1 + Math.floor(Math.random() * (greens.length - 1))) % greens.length; hero.style.setProperty("--lc", greens[ci]); }
+    ht = setTimeout(shift, 3600 + Math.random() * 3000);
+  }
+  // passar o mouse ou tocar no U liga a luz de novo: piscadas, halo e ambiente acendem juntos e o verde muda de tom
+  let zapping = false;
+  function zap(){
+    if (zapping || !document.documentElement.classList.contains("ready")) return; zapping = true;
+    const p = patterns[1];
+    u.forEach(g => g.animate(frames(p, 1), { duration: p.d }));
+    pool.animate(frames(p, .8), { duration: p.d }); spill.animate(frames(p, .8), { duration: p.d });
+    halo.animate([{ opacity: .25 }, { opacity: 1, offset: .5 }, { opacity: .85 }], { duration: p.d + 500, easing: "ease-out" });
+    ci = (ci + 1) % greens.length; hero.style.setProperty("--lc", greens[ci]);
+    setTimeout(() => { zapping = false; }, p.d + 350);
+  }
+  const hit = $(".lamp .l-hit"); hit.addEventListener("pointerenter", zap); hit.addEventListener("click", zap);
+  function go(){ if (live) return; live = true; setTimeout(() => { schedule(); shift(); }, 3200); }
+  addEventListener("pl:ready", go);
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { visible = en.isIntersecting; hero.classList.toggle("idle", !visible); }), { threshold: .05 }).observe(hero);
+})();
+
+/* ---------------- Tema claro / escuro ---------------- */
+const themeBtn = $("#themeBtn");
+const isLight = () => document.documentElement.getAttribute("data-theme") === "light";
+function syncThemeBtn(){ themeBtn.setAttribute("aria-label", isLight() ? "Mudar para o tema escuro" : "Mudar para o tema claro"); themeBtn.setAttribute("title", isLight() ? "Tema escuro" : "Tema claro"); }
+themeBtn.addEventListener("click", () => {
+  const next = isLight() ? "dark" : "light", el = document.documentElement;
+  if (!reduce) { el.classList.add("theming"); setTimeout(() => el.classList.remove("theming"), 500); }
+  el.setAttribute("data-theme", next);
+  try { localStorage.setItem("pl-theme", next); } catch (e) {}
+  syncThemeBtn();
+});
+syncThemeBtn();
+
+/* ---------------- Menu mobile ---------------- */
+const menuBtn = $(".menu-btn");
+function setMenu(open){
+  document.body.classList.toggle("menu-open", open);
+  menuBtn.setAttribute("aria-expanded", open); menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  document.documentElement.classList.toggle("lock", open);
+  if (lenis) open ? lenis.stop() : lenis.start();
+}
+menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+$$("#nav a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", e => { if (e.key === "Escape" && document.body.classList.contains("menu-open")) { setMenu(false); menuBtn.focus(); } });
+mqMobile.addEventListener && mqMobile.addEventListener("change", () => setMenu(false));
+
+/* ---------------- Galeria horizontal de projetos ---------------- */
+const hs = $("#projetos"), hsTrack = $("#projTrack"), hsCards = $$("#projTrack .pj"), hsBar = $("#projProgress");
+let hsMax = 0;
+const hsNative = () => mqMobile.matches || reduce;
+function hsLayout(){
+  const native = hsNative();
+  hs.classList.toggle("native", native);
+  $(".hs-hint-txt").textContent = native ? "Arraste para o lado" : "Role para ver";
+  if (native) { hs.style.height = ""; hsTrack.style.transform = ""; return; }
+  hsMax = Math.max(0, hsTrack.scrollWidth - innerWidth);
+  hs.style.height = (innerHeight + hsMax) + "px";
+}
+function hsSetMeta(p){
+  hsBar.style.setProperty("--hp", p.toFixed(4));
+}
+function hsUpdate(){
+  if (hsNative()) return;
+  const r = hs.getBoundingClientRect(), span = hs.offsetHeight - innerHeight;
+  const p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+  hsTrack.style.transform = `translate3d(${(-p * hsMax).toFixed(1)}px,0,0)`;
+  hsCards.forEach(c => { const cr = c.getBoundingClientRect(), off = (cr.left + cr.width / 2 - innerWidth / 2) / innerWidth; c.querySelector(".ph").style.setProperty("--px", (off * -4).toFixed(2) + "%"); });
+  hsSetMeta(p);
+}
+hsTrack.addEventListener("scroll", () => { if (hsNative()) { const m = hsTrack.scrollWidth - hsTrack.clientWidth; hsSetMeta(m > 0 ? hsTrack.scrollLeft / m : 0); } }, { passive: true });
+/* Ao navegar pelo teclado, rola a página até o cartão focado ficar visível */
+const hsPin = $("#projetos .hs-pin");
+hsPin.addEventListener("scroll", () => { if (!hsNative() && hsPin.scrollLeft) hsPin.scrollLeft = 0; });
+hsCards.forEach(c => c.querySelector(".hit").addEventListener("focus", () => {
+  if (hsNative()) return;
+  hsPin.scrollLeft = 0;
+  const left = c.offsetLeft - innerWidth * .3, p = Math.min(1, Math.max(0, left / (hsMax || 1)));
+  const y = hs.offsetTop + p * (hs.offsetHeight - innerHeight);
+  lenis ? lenis.scrollTo(y, { immediate: true }) : scrollTo(0, y);
+}));
+hsLayout();
+addEventListener("load", () => { hsLayout(); onScroll(); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { hsLayout(); onScroll(); });
+
+/* ---------------- Rolagem suave ---------------- */
+let lenis = null;
+if (!reduce && window.Lenis) {
+  lenis = new Lenis({ lerp: .085, wheelMultiplier: .95, smoothWheel: true });
+  const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+  if ($("#intro")) lenis.stop();
+  addEventListener("pl:ready", () => lenis.start());
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a || e.defaultPrevented || a.getAttribute("aria-disabled") === "true") return;
+  const id = a.getAttribute("href"); if (id.length < 2) return;
+  const t = document.querySelector(id); if (!t) return;
+  if (!lenis) return;
+  e.preventDefault();
+  lenis.scrollTo(id === "#inicio" ? 0 : t, { duration: 1.3, easing: x => 1 - Math.pow(1 - x, 4) });
+});
+
+/* ---------------- Rolagem ---------------- */
+const hdr = $("#hdr"), track = $(".track i"), steps = $$(".step");
+const navLinks = $$(".nav a:not(.btn)"), navSecs = navLinks.map(a => document.querySelector(a.getAttribute("href")));
+const zones = $$(".zone"), root = document.documentElement;
+let ticking = false;
+function onScroll(){
+  ticking = false;
+  const y = scrollY, vh = innerHeight;
+  hdr.classList.toggle("solid", y > 40);
+  hdr.style.setProperty("--hp", Math.min(1, y / 180).toFixed(3));
+  let cur = -1; navSecs.forEach((s, k) => { if (s.getBoundingClientRect().top < vh * .45) cur = k; });
+  navLinks.forEach((a, k) => { a.classList.toggle("on", k === cur); if (k === cur) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+  const st = $("#steps").getBoundingClientRect();
+  const p = Math.max(0, Math.min(1, (vh * .7 - st.top) / (st.height * .9)));
+  track.parentElement.style.setProperty("--p", p.toFixed(3));
+  steps.forEach((s, k) => s.classList.toggle("lit", p >= (k / steps.length) + .02 || p > .98));
+  if (root.classList.contains("ready")) zones.forEach(z => {
+    const t = z.getBoundingClientRect().top, on = z.classList.contains("on");
+    if (!on && t < vh * .7) {
+      z.classList.add("on");
+      if (z.id === "antes-depois") setTimeout(baHint, 600);
+    }
+  });
+  hsUpdate();
+}
+addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+addEventListener("resize", () => { hsLayout(); onScroll(); });
+onScroll();
+
+/* ---------------- Revelação das imagens ---------------- */
+function startReveals(){
+  const els = $$("[data-rv]");
+  if (!("IntersectionObserver" in window) || reduce) { els.forEach(e => e.classList.add("in")); return; }
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: .1 });
+  els.forEach(e => io.observe(e));
+}
+if (!reduce) root.classList.add("anim");
+
+/* ---------------- Abertura LIGHT ON ---------------- */
+(function intro(){
+  const el = $("#intro"), root = document.documentElement;
+  let seen = false; try { seen = sessionStorage.getItem("pl-intro") === "1"; } catch (e) {}
+  let done = false;
+  const start = () => { root.classList.add("ready"); startReveals(); onScroll(); };
+  const finish = () => { if (done) return; done = true; el.remove(); root.classList.remove("lock"); dispatchEvent(new Event("pl:ready")); try { sessionStorage.setItem("pl-intro", "1"); } catch (e) {} };
+  if (seen) { finish(); start(); return; }
+  root.classList.add("lock");
+  const mark = el.querySelector(".mark"), grps = el.querySelectorAll(".ugrp"), room = el.querySelector(".room"), stage = el.querySelector(".stage");
+  const glass = el.querySelector(".u-glass"), tube = el.querySelector(".u-tube"), core = el.querySelector(".u-core"), glow = el.querySelector(".u-glow"), halo = el.querySelector(".u-halo");
+  const canAnimate = !!(el.animate && tube.getTotalLength);
+
+  function reveal(fast){
+    if (el.dataset.rev) return; el.dataset.rev = "1";
+    const r = tube.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height * .85;
+    const maxR = Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy)) + 200;
+    const dur = fast ? 420 : 900, t0 = performance.now();
+    start();
+    if (stage.animate) stage.animate([{ transform: "scale(1)", opacity: 1 }, { transform: "scale(1.18)", opacity: 0 }], { duration: dur, easing: "cubic-bezier(.6,0,.3,1)", fill: "forwards" });
+    (function frame(now){
+      const t = Math.min(1, (now - t0) / dur), e = t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2, rad = e * maxR;
+      const m = `radial-gradient(circle at ${cx}px ${cy}px, transparent ${rad}px, #000 ${rad + 160}px)`;
+      el.style.webkitMaskImage = m; el.style.maskImage = m;
+      if (t < 1) requestAnimationFrame(frame); else finish();
+    })(t0);
+  }
+  el.querySelector(".skip").addEventListener("click", () => reveal(true));
+  el.addEventListener("click", e => { if (!e.target.closest(".skip")) reveal(true); });
+  addEventListener("keydown", e => { if (!done && (e.key === "Escape" || e.key === "Enter" || e.key === " ")) reveal(true); });
+
+  /* Carregamento real: todas as imagens do site (inclusive as "lazy") e as fontes baixam durante a abertura.
+     O tubo do U acende na mesma proporção; com tudo pronto o neon liga e a página aparece. */
+  const imgs = $$("img").filter(i => !el.contains(i));
+  imgs.forEach(i => { i.loading = "eager"; });
+  const jobs = imgs.map(i => i.decode().catch(() => {}));
+  if (document.fonts && document.fonts.ready) jobs.push(document.fonts.ready);
+  let loaded = 0; const total = Math.max(1, jobs.length);
+  const allDone = Promise.race([
+    Promise.all(jobs.map(j => j.then(() => { loaded++; }))),
+    new Promise(r => setTimeout(r, 10000))   // conexão lenta: não prende a pessoa na abertura
+  ]);
+  let ready = false; allDone.then(() => { ready = true; });
+  const num = el.querySelector(".load-n"), lbl = el.querySelector(".load-t");
+
+  if (reduce || !canAnimate) {
+    el.classList.add("static"); halo.setAttribute("opacity", ".6");
+    const t0 = performance.now();
+    (function tick(){
+      num.textContent = Math.round(loaded / total * 100) + "%";
+      if (!ready || performance.now() - t0 < 700) return void setTimeout(tick, 100);
+      el.style.transition = "opacity .5s"; el.style.opacity = "0"; start(); setTimeout(finish, 520);
+    })();
+    return;
+  }
+  const L = tube.getTotalLength();
+  [tube, core, glow].forEach(p => { p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+  const A = (node, kf, o) => node.animate(kf, Object.assign({ fill: "forwards" }, o));
+  A(glass, [{ opacity: 0 }, { opacity: .55 }], { duration: 400, delay: 100 });
+  A(glow, [{ opacity: 0 }, { opacity: .55 }], { duration: 400, delay: 100 });
+
+  // o tubo acompanha o carregamento, mas leva no mínimo 1,2s para não "pular"
+  const t0 = performance.now(); let shown = 0;
+  (function fill(now){
+    if (el.dataset.rev) return;
+    const target = ready ? 1 : Math.min(loaded / total, .96);
+    shown = Math.min(shown + (target - shown) * .08 + .002, target, (now - t0 - 300) / 1200);
+    shown = Math.max(shown, 0);
+    [tube, core, glow].forEach(p => { p.style.strokeDashoffset = L * (1 - shown); });
+    num.textContent = Math.round(shown * 100) + "%";
+    if (shown < .999) return void requestAnimationFrame(fill);
+    ignite();
+  })(t0);
+
+  function ignite(){
+    lbl.textContent = "Pronto"; el.classList.add("lit");
+    grps.forEach(g => g.animate([{ opacity: 1 }, { opacity: .2, offset: .12 }, { opacity: 1, offset: .24 }, { opacity: .45, offset: .4 }, { opacity: 1, offset: .55 }, { opacity: .75, offset: .75 }, { opacity: 1 }], { duration: 420, delay: 80 }));
+    A(halo, [{ opacity: 0 }, { opacity: .9 }], { duration: 550, delay: 470, easing: "ease-out" });
+    A(glow, [{ opacity: .55 }, { opacity: 1 }], { duration: 450, delay: 470 });
+    A(room, [{ opacity: 0, transform: "scale(.35)" }, { opacity: 1, transform: "scale(1)" }], { duration: 800, delay: 500, easing: "cubic-bezier(.2,.7,.1,1)" });
+    A(mark, [{ opacity: 0, filter: "brightness(.2)" }, { opacity: 1, filter: "brightness(1)" }], { duration: 600, delay: 530, easing: "ease-out" });
+    A(el.querySelector(".load"), [{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 900 });
+    setTimeout(() => reveal(false), 1400);
+  }
+})();
+</script>
+
+</body>
+</html>
